@@ -21,7 +21,7 @@ export type DetailsScreenRouteProp = RouteProp<
 
 //for bottomTabs
 export type BottomTabNavigatorParamList = {
-  HomeStack: HomeStackNavigatorParamList;
+  Home: HomeStackNavigatorParamList;
   Activities: undefined;
   Profile: undefined;
 };
