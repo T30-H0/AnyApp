@@ -1,10 +1,13 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import LocaLImage from '../../components/LocalImage';
+import APP_COLORS from '../../themes/Colors';
+import ICONS from '../../themes/Images';
 
 const Profile = () => {
   return (
     <View style={styles.main}>
-      <Text>Profile</Text>
+      <LocaLImage icon={ICONS.icProfile} style={styles.icAvatar} />
     </View>
   );
 };
@@ -16,6 +19,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: APP_COLORS.white,
+  },
+  icAvatar: {
+    width: 64,
+    height: 64,
+    margin: 20,
   },
 });

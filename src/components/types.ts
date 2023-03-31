@@ -1,4 +1,10 @@
-import {ColorValue, StyleProp, ViewStyle} from 'react-native';
+import {
+  ColorValue,
+  StyleProp,
+  TextProps,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 
 export interface IInputProps {
   inputContainerStyle?: StyleProp<ViewStyle>;
@@ -7,4 +13,11 @@ export interface IInputProps {
   placeHolder?: string;
   placeHolderStyle?: ColorValue;
   error?: string;
+}
+
+export interface ITextProps {
+  style?: StyleProp<TextStyle>;
+  type: string;
+  props?: TextProps;
+  children: string | number;
 }

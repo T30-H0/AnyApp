@@ -3,7 +3,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 //for home screen
 export type HomeStackNavigatorParamList = {
-  Home: undefined;
+  Main: undefined;
   Detail: {
     state: string;
   };
