@@ -1,7 +1,6 @@
 import React from 'react';
 import FastImage, {FastImageProps, ImageStyle} from 'react-native-fast-image';
 import {StyleProp} from 'react-native/types';
-import APP_COLORS from '../themes/Colors';
 
 const LocaLImage = ({
   props,
@@ -16,8 +15,7 @@ const LocaLImage = ({
     <FastImage
       {...props}
       style={style}
-      source={icon}
-      tintColor={APP_COLORS.primary}
+      source={{uri: icon}}
       resizeMode={FastImage.resizeMode.contain}
     />
   );

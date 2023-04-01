@@ -6,12 +6,12 @@ import Activities from '../screen/activities/Activities';
 import Profile from '../screen/profile/Profile';
 import APP_COLORS from '../themes/Colors';
 import ICONS from '../themes/Images';
-import HomeStackNavigator from './HomeStack';
-import {BottomTabNavigatorParamList} from './types';
+import StackNavigator from './Stack';
 
-const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
+// const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
+const Tab = createBottomTabNavigator();
 
-const BottomTabs = () => {
+const MainTabs = () => {
   const getTabBarIcon = (focused: boolean, icon: ImageSourcePropType) => {
     return (
       <Image
@@ -24,7 +24,7 @@ const BottomTabs = () => {
     <Tab.Navigator>
       <Tab.Screen
         name="Home"
-        component={HomeStackNavigator}
+        component={StackNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({focused}) => getTabBarIcon(focused, ICONS.icHome),
@@ -48,7 +48,7 @@ const BottomTabs = () => {
   );
 };
 
-export default BottomTabs;
+export default MainTabs;
 const styles = StyleSheet.create({
   image: {
     resizeMode: 'contain',

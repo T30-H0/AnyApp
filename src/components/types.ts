@@ -20,4 +20,6 @@ export interface ITextProps {
   type: string;
   props?: TextProps;
   children: string | number;
+  textAlign: string;
+  color: string;
 }
