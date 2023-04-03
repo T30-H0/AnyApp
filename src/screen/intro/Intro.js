@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Text} from '../../components';
@@ -7,6 +8,7 @@ import APP_COLORS from '../../themes/Colors';
 import {HIT_SLOP, SCREEN_WIDTH} from '../../utils/Constant';
 
 const Intro = () => {
+  const navigation = useNavigation();
   const [slideNum, setSlideNum] = useState(0);
 
   const onScrollEnd = e => {
@@ -16,11 +18,18 @@ const Intro = () => {
     setSlideNum(pageNum);
   };
 
+  const onContinue = () => {
+    navigation.navigate('Main');
+  };
+
   const renderFooter = () => {
     if (slideNum === 2) {
       return (
         <View>
-          <TouchableOpacity hitSlop={HIT_SLOP} style={styles.btnSkip}>
+          <TouchableOpacity
+            hitSlop={HIT_SLOP}
+            style={styles.btnSkip}
+            onPress={onContinue}>
             <Text type={'bold-16'} color={APP_COLORS.primary}>
               Continue
             </Text>

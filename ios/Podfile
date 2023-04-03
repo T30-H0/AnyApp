@@ -47,6 +47,7 @@ target 'AnyApp' do
     inherit! :complete
     # Pods for testing
   end
+  pod 'boost', :podspec => '../node_modules/react-native/third-party-podspecs/boost.podspec'
 
   post_install do |installer|
     react_native_post_install(

@@ -3,10 +3,10 @@ import * as React from 'react';
 
 import {Image, ImageSourcePropType, StyleSheet} from 'react-native';
 import Activities from '../screen/activities/Activities';
+import Home from '../screen/home/Home';
 import Profile from '../screen/profile/Profile';
 import APP_COLORS from '../themes/Colors';
 import ICONS from '../themes/Images';
-import StackNavigator from './Stack';
 
 // const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 const Tab = createBottomTabNavigator();
@@ -24,7 +24,7 @@ const MainTabs = () => {
     <Tab.Navigator>
       <Tab.Screen
         name="Home"
-        component={StackNavigator}
+        component={Home}
         options={{
           headerShown: false,
           tabBarIcon: ({focused}) => getTabBarIcon(focused, ICONS.icHome),
