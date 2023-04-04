@@ -10,6 +10,10 @@ import icPlus from '../assets/images/icons/icPlus.png';
 import icProfile from '../assets/images/icons/icProfile.png';
 import icRecent from '../assets/images/icons/icRecent.png';
 
+//images
+import imgGoogleLogo from '../assets/images/googleLogo.png';
+import imgFaceBookLogo from '../assets/images/logoFacebook.png';
+
 const ICONS = {
   icHome,
   icRecent,
@@ -24,4 +28,9 @@ const ICONS = {
   icPlus,
 };
 
-export default ICONS;
+const IMAGES = {
+  imgGoogleLogo,
+  imgFaceBookLogo,
+};
+
+export {ICONS, IMAGES};

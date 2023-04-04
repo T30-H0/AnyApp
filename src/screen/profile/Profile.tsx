@@ -1,13 +1,13 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import LocaLImage from '../../components/LocalImage';
+import RemoteImage from '../../components/RemoteImage';
 import APP_COLORS from '../../themes/Colors';
 import ICONS from '../../themes/Images';
 
 const Profile = () => {
   return (
     <View style={styles.main}>
-      <LocaLImage icon={ICONS.icProfile} style={styles.icAvatar} />
+      <RemoteImage icon={ICONS.icProfile} style={styles.icAvatar} />
     </View>
   );
 };

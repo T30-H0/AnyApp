@@ -1,9 +1,8 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import FastImage, {FastImageProps, ImageStyle} from 'react-native-fast-image';
 import {StyleProp} from 'react-native/types';
 
-const LocalImage = ({
+const RemoteImage = ({
   props,
   icon,
   style,
@@ -15,17 +14,11 @@ const LocalImage = ({
   return (
     <FastImage
       {...props}
-      style={[styles.main, style]}
-      source={icon}
+      style={style}
+      source={{uri: icon}}
       resizeMode={FastImage.resizeMode.contain}
     />
   );
 };
 
-export default LocalImage;
-const styles = StyleSheet.create({
-  main: {
-    width: 24,
-    height: 24,
-  },
-});
+export default RemoteImage;

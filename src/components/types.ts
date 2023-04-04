@@ -17,9 +17,24 @@ export interface IInputProps {
 
 export interface ITextProps {
   style?: StyleProp<TextStyle>;
-  type: string;
+  type?: string;
   props?: TextProps;
-  children: string | number;
-  textAlign: string;
-  color: string;
+  children?: string | number;
+  textAlign?: string;
+  color?: string;
+}
+
+export interface IButtonProps {
+  fill?: boolean;
+  title: string;
+  titleColor?: string;
+  onPress: () => void;
+  buttonStyle?: StyleProp<ViewStyle>;
+  style?: TextStyle;
+  icon?: string;
+}
+
+export interface IDivider {
+  style?: ViewStyle;
+  color?: string;
 }

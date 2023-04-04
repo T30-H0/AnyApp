@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Text} from '../../components';
-import LocaLImage from '../../components/LocalImage';
+import RemoteImage from '../../components/RemoteImage';
 import {INTRO_DATA} from '../../data';
 import APP_COLORS from '../../themes/Colors';
 import {HIT_SLOP, SCREEN_WIDTH} from '../../utils/Constant';
@@ -19,7 +19,7 @@ const Intro = () => {
   };
 
   const onContinue = () => {
-    navigation.navigate('Main');
+    navigation.navigate('Login');
   };
 
   const renderFooter = () => {
@@ -49,7 +49,7 @@ const Intro = () => {
         {INTRO_DATA.map((item, index) => {
           return (
             <View style={styles.body} key={String(index)}>
-              <LocaLImage icon={item.image} style={styles.image} />
+              <RemoteImage icon={item.image} style={styles.image} />
               <Text
                 type="normal-16"
                 textAlign="center"

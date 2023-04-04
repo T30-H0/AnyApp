@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import Input from '../../components/Input';
 // import {HomeScreenNavigationProp} from '../../navigation/types';
 
 const Home = () => {
@@ -9,12 +8,6 @@ const Home = () => {
   return (
     <View style={styles.home}>
       <Text>Home Screen</Text>
-      <Input error="Invalid email" />
-      <Input
-        label="Password"
-        style={styles.pass}
-        placeHolder="Enter your password"
-      />
     </View>
   );
 };
@@ -27,8 +20,5 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  pass: {
-    marginTop: 12,
   },
 });

@@ -1,6 +1,8 @@
 import React, {forwardRef} from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet, TextInput, View} from 'react-native';
+import APP_COLORS from '../themes/Colors';
 import {SCREEN_WIDTH} from '../utils/Constant';
+import Text from './Text';
 import {IInputProps} from './types';
 
 const Input = forwardRef((props: IInputProps, _ref) => {
@@ -14,15 +16,24 @@ const Input = forwardRef((props: IInputProps, _ref) => {
   } = props;
   return (
     <View style={[styles.container, style]}>
-      <Text>{label || 'Email'}</Text>
-      <View style={[styles.inputContainer, inputContainerStyle]}>
+      <Text type="bold-14">{label || 'Email'}</Text>
+      <View
+        style={[
+          styles.inputContainer,
+          error ? {borderColor: APP_COLORS.red} : {},
+          inputContainerStyle,
+        ]}>
         <TextInput
           style={[styles.inputStyle]}
           placeholder={placeHolder || 'Enter your email'}
           placeholderTextColor={placeHolderStyle}
         />
       </View>
-      {error && <Text style={styles.error}>{error || 'Invalid Email'}</Text>}
+      {error && (
+        <Text color={APP_COLORS.red} style={styles.error}>
+          {error || 'Invalid Email'}
+        </Text>
+      )}
     </View>
   );
 });
@@ -38,6 +49,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 6,
     width: SCREEN_WIDTH - 40,
+    borderColor: APP_COLORS.primary,
   },
   inputStyle: {
     height: 34,
@@ -45,7 +57,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   error: {
-    color: 'red',
     marginTop: 8,
     marginLeft: 12,
   },
