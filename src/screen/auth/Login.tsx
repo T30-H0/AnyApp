@@ -1,13 +1,41 @@
-import React from 'react';
+import {
+  GoogleSignin,
+  statusCodes,
+} from '@react-native-google-signin/google-signin';
+import {useNavigation} from '@react-navigation/native';
+import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Text} from '../../components';
-import Button from '../../components/Button';
-import Divider from '../../components/Divider';
-import Input from '../../components/Input';
+import {Button, Divider, Input, Text} from '../../components';
 import APP_COLORS from '../../themes/Colors';
 import {IMAGES} from '../../themes/Images';
 
 const Login = () => {
+  const navigation = useNavigation<any>();
+
+  useEffect(() => {
+    GoogleSignin.configure();
+  }, []);
+
+  const signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo = await GoogleSignin.signIn();
+      if (userInfo) {
+        navigation.navigate('Main');
+      }
+    } catch (error: any) {
+      switch (error.code) {
+        case statusCodes.SIGN_IN_CANCELLED:
+          break;
+        case statusCodes.IN_PROGRESS:
+          break;
+        case statusCodes.PLAY_SERVICES_NOT_AVAILABLE:
+          break;
+        default:
+          break;
+      }
+    }
+  };
   return (
     <View style={styles.container}>
       <Input error="Invalid email" />
@@ -27,7 +55,7 @@ const Login = () => {
         fill={false}
         title="Sign in with Google"
         titleColor={APP_COLORS.black}
-        onPress={() => {}}
+        onPress={signIn}
         buttonStyle={styles.btn}
         icon={IMAGES.imgGoogleLogo}
       />

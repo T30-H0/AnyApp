@@ -4,9 +4,10 @@ import Login from '../screen/auth/Login';
 import Detail from '../screen/home/Detail';
 import Intro from '../screen/intro/Intro';
 import MainTabs from './Tabs';
+import {StackNavigatorParamList} from './types';
 
-// const HomeStack = createNativeStackNavigator<HomeStackNavigatorParamList>();
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<StackNavigatorParamList>();
+// const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   return (

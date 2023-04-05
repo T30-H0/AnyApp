@@ -6,7 +6,7 @@ import Activities from '../screen/activities/Activities';
 import Home from '../screen/home/Home';
 import Profile from '../screen/profile/Profile';
 import APP_COLORS from '../themes/Colors';
-import ICONS from '../themes/Images';
+import {ICONS} from '../themes/Images';
 
 // const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 const Tab = createBottomTabNavigator();
