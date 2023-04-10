@@ -1,14 +1,17 @@
 #import "AppDelegate.h"
 #import "Firebase.h"
 
-
 #import <React/RCTBundleURLProvider.h>
+#import <FBSDKCoreKit/FBSDKCoreKit-swift.h>
+#import <React/RCTLinkingManager.h> 
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [FIRApp configure];
+  [[FBSDKApplicationDelegate sharedInstance] application:application
+                        didFinishLaunchingWithOptions:launchOptions];
   self.moduleName = @"AnyApp";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
@@ -24,6 +27,21 @@
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
+}
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  if ([[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options]) {
+    return YES;
+  }
+
+  if ([RCTLinkingManager application:app openURL:url options:options]) {
+    return YES;
+  }
+
+  return NO;
 }
 
 /// This method controls whether the `concurrentRoot`feature of React18 is turned on or off.

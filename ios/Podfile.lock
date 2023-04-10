@@ -1,13 +1,15 @@
 PODS:
-  - AppAuth (1.6.0):
-    - AppAuth/Core (= 1.6.0)
-    - AppAuth/ExternalUserAgent (= 1.6.0)
-  - AppAuth/Core (1.6.0)
-  - AppAuth/ExternalUserAgent (1.6.0):
+  - AppAuth (1.6.1):
+    - AppAuth/Core (= 1.6.1)
+    - AppAuth/ExternalUserAgent (= 1.6.1)
+  - AppAuth/Core (1.6.1)
+  - AppAuth/ExternalUserAgent (1.6.1):
     - AppAuth/Core
   - boost (1.76.0)
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
+  - FBAEMKit (15.0.0):
+    - FBSDKCoreKit_Basics (= 15.0.0)
   - FBLazyVector (0.71.4)
   - FBReactNativeSpec (0.71.4):
     - RCT-Folly (= 2021.07.22.00)
@@ -16,6 +18,18 @@ PODS:
     - React-Core (= 0.71.4)
     - React-jsi (= 0.71.4)
     - ReactCommon/turbomodule/core (= 0.71.4)
+  - FBSDKCoreKit (15.0.0):
+    - FBAEMKit (= 15.0.0)
+    - FBSDKCoreKit_Basics (= 15.0.0)
+  - FBSDKCoreKit_Basics (15.0.0)
+  - FBSDKGamingServicesKit (15.0.0):
+    - FBSDKCoreKit (= 15.0.0)
+    - FBSDKCoreKit_Basics (= 15.0.0)
+    - FBSDKShareKit (= 15.0.0)
+  - FBSDKLoginKit (15.0.0):
+    - FBSDKCoreKit (= 15.0.0)
+  - FBSDKShareKit (15.0.0):
+    - FBSDKCoreKit (= 15.0.0)
   - Firebase (10.7.0):
     - Firebase/Core (= 10.7.0)
   - Firebase/Core (10.7.0):
@@ -150,7 +164,7 @@ PODS:
     - GoogleUtilities/Network (~> 7.8)
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleDataTransport (9.2.1):
+  - GoogleDataTransport (9.2.2):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
@@ -158,38 +172,38 @@ PODS:
     - AppAuth (~> 1.5)
     - GTMAppAuth (~> 1.3)
     - GTMSessionFetcher/Core (< 3.0, >= 1.1)
-  - GoogleUtilities (7.11.0):
-    - GoogleUtilities/AppDelegateSwizzler (= 7.11.0)
-    - GoogleUtilities/Environment (= 7.11.0)
-    - GoogleUtilities/ISASwizzler (= 7.11.0)
-    - GoogleUtilities/Logger (= 7.11.0)
-    - GoogleUtilities/MethodSwizzler (= 7.11.0)
-    - GoogleUtilities/Network (= 7.11.0)
-    - "GoogleUtilities/NSData+zlib (= 7.11.0)"
-    - GoogleUtilities/Reachability (= 7.11.0)
-    - GoogleUtilities/SwizzlerTestHelpers (= 7.11.0)
-    - GoogleUtilities/UserDefaults (= 7.11.0)
-  - GoogleUtilities/AppDelegateSwizzler (7.11.0):
+  - GoogleUtilities (7.11.1):
+    - GoogleUtilities/AppDelegateSwizzler (= 7.11.1)
+    - GoogleUtilities/Environment (= 7.11.1)
+    - GoogleUtilities/ISASwizzler (= 7.11.1)
+    - GoogleUtilities/Logger (= 7.11.1)
+    - GoogleUtilities/MethodSwizzler (= 7.11.1)
+    - GoogleUtilities/Network (= 7.11.1)
+    - "GoogleUtilities/NSData+zlib (= 7.11.1)"
+    - GoogleUtilities/Reachability (= 7.11.1)
+    - GoogleUtilities/SwizzlerTestHelpers (= 7.11.1)
+    - GoogleUtilities/UserDefaults (= 7.11.1)
+  - GoogleUtilities/AppDelegateSwizzler (7.11.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.11.0):
+  - GoogleUtilities/Environment (7.11.1):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/ISASwizzler (7.11.0)
-  - GoogleUtilities/Logger (7.11.0):
+  - GoogleUtilities/ISASwizzler (7.11.1)
+  - GoogleUtilities/Logger (7.11.1):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.11.0):
+  - GoogleUtilities/MethodSwizzler (7.11.1):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (7.11.0):
+  - GoogleUtilities/Network (7.11.1):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.11.0)"
-  - GoogleUtilities/Reachability (7.11.0):
+  - "GoogleUtilities/NSData+zlib (7.11.1)"
+  - GoogleUtilities/Reachability (7.11.1):
     - GoogleUtilities/Logger
-  - GoogleUtilities/SwizzlerTestHelpers (7.11.0):
+  - GoogleUtilities/SwizzlerTestHelpers (7.11.1):
     - GoogleUtilities/MethodSwizzler
-  - GoogleUtilities/UserDefaults (7.11.0):
+  - GoogleUtilities/UserDefaults (7.11.1):
     - GoogleUtilities/Logger
   - GTMAppAuth (1.3.1):
     - AppAuth/Core (~> 1.6)
@@ -466,6 +480,21 @@ PODS:
   - React-jsinspector (0.71.4)
   - React-logger (0.71.4):
     - glog
+  - react-native-fbsdk-next (11.2.0):
+    - React-Core
+    - react-native-fbsdk-next/Core (= 11.2.0)
+    - react-native-fbsdk-next/Login (= 11.2.0)
+    - react-native-fbsdk-next/Share (= 11.2.0)
+  - react-native-fbsdk-next/Core (11.2.0):
+    - FBSDKCoreKit (~> 15.0.0)
+    - React-Core
+  - react-native-fbsdk-next/Login (11.2.0):
+    - FBSDKLoginKit (~> 15.0.0)
+    - React-Core
+  - react-native-fbsdk-next/Share (11.2.0):
+    - FBSDKGamingServicesKit (~> 15.0.0)
+    - FBSDKShareKit (~> 15.0.0)
+    - React-Core
   - react-native-safe-area-context (4.5.0):
     - RCT-Folly
     - RCTRequired
@@ -638,6 +667,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
+  - react-native-fbsdk-next (from `../node_modules/react-native-fbsdk-next`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -664,6 +694,12 @@ SPEC REPOS:
   trunk:
     - AppAuth
     - CocoaAsyncSocket
+    - FBAEMKit
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
+    - FBSDKGamingServicesKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -739,6 +775,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   React-logger:
     :path: "../node_modules/react-native/ReactCommon/logger"
+  react-native-fbsdk-next:
+    :path: "../node_modules/react-native-fbsdk-next"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-perflogger:
@@ -783,12 +821,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
-  boost: 64032b9e9b938fda23325e68a3771f0fabf414dc
+  AppAuth: e48b432bb4ba88b10cb2bcc50d7f3af21e78b9c2
+  boost: 57d2868c099736d80fcd648bf211b4431e51a558
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
+  FBAEMKit: d8312d8451ead46282adc7f3565ffc4965e3a4a7
   FBLazyVector: 446e84642979fff0ba57f3c804c2228a473aeac2
   FBReactNativeSpec: 241709e132e3bf1526c1c4f00bc5384dd39dfba9
+  FBSDKCoreKit: 81879058dd06208c0820fc713d054ca54903e8ba
+  FBSDKCoreKit_Basics: eebc9bb69a0e5d133b92dca53a20716227faa454
+  FBSDKGamingServicesKit: e0766514d64d26a9f846e793c0a44bc4a236723b
+  FBSDKLoginKit: 11995469cd7da16fd4d5245e8d2ec61060479270
+  FBSDKShareKit: 9501792c3024580809f811a8a549868699d9bd32
   Firebase: 0219acf760880eeec8ce479895bd7767466d9f81
   FirebaseAnalytics: f8133442ee6f8512e28ff19e62ce15398bfaeace
   FirebaseCore: e317665b9d744727a97e623edbbed009320afdd7
@@ -809,9 +853,9 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   GoogleAppMeasurement: fe17c92a32207dd5cdd4e8d742767f2da74857f6
-  GoogleDataTransport: ea169759df570f4e37bdee1623ec32a7e64e67c4
+  GoogleDataTransport: 8378d1fa8ac49753ea6ce70d65a7cb70ce5f66e6
   GoogleSignIn: 5651ce3a61e56ca864160e79b484cd9ed3f49b7a
-  GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
+  GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
   GTMAppAuth: 0ff230db599948a9ad7470ca667337803b3fc4dd
   GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   hermes-engine: a1f157c49ea579c28b0296bda8530e980c45bdb3
@@ -834,6 +878,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: d6b7fa9260aa3cb40afee0507e3bc1d17ecaa6f2
   React-jsinspector: 1f51e775819199d3fe9410e69ee8d4c4161c7b06
   React-logger: 0d58569ec51d30d1792c5e86a8e3b78d24b582c6
+  react-native-fbsdk-next: b2dd3a5cebb2507c09e3ec880e1b94a491dbaece
   react-native-safe-area-context: 39c2d8be3328df5d437ac1700f4f3a4f75716acc
   React-perflogger: 0bb0522a12e058f6eb69d888bc16f40c16c4b907
   React-RCTActionSheet: bfd675a10f06a18728ea15d82082d48f228a213a

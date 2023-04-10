@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1FD60F88800F0ACB2FB22861 /* libPods-AnyApp-AnyAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5D391CBBDE7163C833D2113 /* libPods-AnyApp-AnyAppTests.a */; };
 		3242D9A268B6128D7B3E6978 /* libPods-AnyApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C0B6B12D310063507C645C /* libPods-AnyApp.a */; };
+		4803F5D729DF200A00EF762B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803F5D629DF200A00EF762B /* File.swift */; };
 		48A2AA7C29DDC05D00EDC5D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48A2AA7B29DDC05D00EDC5D1 /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AnyApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AnyApp/main.m; sourceTree = "<group>"; };
 		32C0B6B12D310063507C645C /* libPods-AnyApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AnyApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4803F5D529DF200900EF762B /* AnyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnyApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		4803F5D629DF200A00EF762B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		48A2AA7B29DDC05D00EDC5D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "AnyApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		48FB779A29DC7CA2002A205E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5111E68F825B87B558C63CD1 /* Pods-AnyApp-AnyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnyApp-AnyAppTests.release.xcconfig"; path = "Target Support Files/Pods-AnyApp-AnyAppTests/Pods-AnyApp-AnyAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				4803F5D629DF200A00EF762B /* File.swift */,
+				4803F5D529DF200900EF762B /* AnyApp-Bridging-Header.h */,
 			);
 			name = AnyApp;
 			sourceTree = "<group>";
@@ -213,7 +218,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1420;
 					};
 				};
 			};
@@ -433,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				4803F5D729DF200A00EF762B /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B4F1F75FD84D22AE0F1C039 /* Pods-AnyApp-AnyAppTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -479,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5111E68F825B87B558C63CD1 /* Pods-AnyApp-AnyAppTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = AnyAppTests/Info.plist;
@@ -505,9 +513,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AnyApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,8 +530,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anyapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anyapp.develop;
 				PRODUCT_NAME = AnyApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AnyApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -532,8 +546,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AnyApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -544,8 +562,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anyapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anyapp.develop;
 				PRODUCT_NAME = AnyApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AnyApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
