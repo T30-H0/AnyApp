@@ -1,13 +1,19 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-// import {HomeScreenNavigationProp} from '../../navigation/types';
+import {StyleSheet, View} from 'react-native';
+import {Input} from '../../components';
+import APP_COLORS from '../../themes/Colors';
+import {HAS_NOTCH, SCREEN_WIDTH} from '../../utils/Constant';
 
 const Home = () => {
-  // const navigation = useNavigation<HomeScreenNavigationProp>();
-  // const [state] = useState('State');
   return (
     <View style={styles.home}>
-      <Text>Home Screen</Text>
+      <View style={styles.header}>
+        <Input
+          placeHolder="AnyApp the world is in your pocket"
+          style={styles.searchInput}
+          inputContainerStyle={styles.inputContainerStyle}
+        />
+      </View>
     </View>
   );
 };
@@ -18,7 +24,18 @@ const styles = StyleSheet.create({
   home: {
     width: '100%',
     height: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: APP_COLORS.white,
+  },
+  header: {
+    backgroundColor: APP_COLORS.primary,
+    height: SCREEN_WIDTH * 0.5,
+  },
+  searchInput: {
+    marginTop: HAS_NOTCH ? 50 : 30,
+    borderRadius: 6,
+    alignSelf: 'center',
+  },
+  inputContainerStyle: {
+    marginTop: 0,
   },
 });

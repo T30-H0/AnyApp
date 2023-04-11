@@ -16,7 +16,7 @@ const Input = forwardRef((props: IInputProps, _ref) => {
   } = props;
   return (
     <View style={[styles.container, style]}>
-      <Text type="bold-14">{label || 'Email'}</Text>
+      {label && <Text type="bold-14">{label || 'Email'}</Text>}
       <View
         style={[
           styles.inputContainer,
@@ -25,7 +25,7 @@ const Input = forwardRef((props: IInputProps, _ref) => {
         ]}>
         <TextInput
           style={[styles.inputStyle]}
-          placeholder={placeHolder || 'Enter your email'}
+          placeholder={placeHolder}
           placeholderTextColor={placeHolderStyle}
         />
       </View>
@@ -41,7 +41,9 @@ const Input = forwardRef((props: IInputProps, _ref) => {
 export default Input;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: APP_COLORS.white,
+  },
   inputContainer: {
     marginTop: 4,
     height: 38,
