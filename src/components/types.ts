@@ -19,7 +19,7 @@ export interface ITextProps {
   style?: StyleProp<TextStyle>;
   type?: string;
   props?: TextProps;
-  children?: string | number;
+  children?: React.ReactNode;
   textAlign?: string;
   color?: string;
 }
@@ -30,7 +30,7 @@ export interface IButtonProps {
   titleColor?: string;
   onPress: () => void;
   buttonStyle?: StyleProp<ViewStyle>;
-  style?: TextStyle;
+  tittleStyle?: TextStyle;
   icon?: string;
 }
 

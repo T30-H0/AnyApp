@@ -10,7 +10,7 @@ const Button: React.FC<IButtonProps> = ({
   title,
   onPress,
   buttonStyle,
-  style,
+  tittleStyle,
   fill = true,
   titleColor,
   icon,
@@ -27,8 +27,8 @@ const Button: React.FC<IButtonProps> = ({
       <View style={styles.txtTitle}>
         <Text
           type="bold-16"
-          color={titleColor || APP_COLORS.primary}
-          style={style}>
+          color={titleColor || APP_COLORS.white}
+          style={tittleStyle}>
           {title}
         </Text>
       </View>
