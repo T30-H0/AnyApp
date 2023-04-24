@@ -2,10 +2,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import * as React from 'react';
 import StackNavigator from './Stack';
 
-const RootNavigator = () => {
+const RootNavigator = ({isSkip}: {isSkip: boolean}) => {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <StackNavigator isSkip={isSkip} />
     </NavigationContainer>
   );
 };

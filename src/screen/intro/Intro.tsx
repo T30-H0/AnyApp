@@ -1,17 +1,28 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Text} from '../../components';
 import RemoteImage from '../../components/RemoteImage';
 import {INTRO_DATA} from '../../data';
+import useLocalStorage, {STORAGE_KEYS} from '../../hooks/useLocalStorage';
 import APP_COLORS from '../../themes/Colors';
 import {HIT_SLOP, SCREEN_WIDTH} from '../../utils/Constant';
 
 const Intro = () => {
   const navigation = useNavigation();
+  const {setData} = useLocalStorage({
+    key: STORAGE_KEYS.SKIP_INTRO,
+  });
   const [slideNum, setSlideNum] = useState(0);
 
-  const onScrollEnd = e => {
+  const onScrollEnd = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
     const {x} = e.nativeEvent.contentOffset;
     const {width} = e.nativeEvent.layoutMeasurement;
     const pageNum = Math.floor(x / width);
@@ -19,6 +30,7 @@ const Intro = () => {
   };
 
   const onContinue = () => {
+    setData(true);
     navigation.navigate('Login');
   };
 

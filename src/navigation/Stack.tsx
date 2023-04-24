@@ -1,17 +1,21 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import * as React from 'react';
+import React, {useMemo} from 'react';
 import Login from '../screen/auth/Login';
 import Detail from '../screen/home/Detail';
 import Intro from '../screen/intro/Intro';
 import MainTabs from './Tabs';
-import {StackNavigatorParamList} from './types';
 
-const Stack = createNativeStackNavigator<StackNavigatorParamList>();
-// const Stack = createNativeStackNavigator();
+// const Stack = createNativeStackNavigator<StackNavigatorParamList>();
+const Stack = createNativeStackNavigator();
 
-const StackNavigator = () => {
+const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
+  // console.log('isSkip', isSkip);
+  const initRouteName = useMemo(() => {
+    return isSkip ? 'Main' : 'Intro';
+  }, [isSkip]);
+
   return (
-    <Stack.Navigator initialRouteName="Intro">
+    <Stack.Navigator initialRouteName={initRouteName}>
       <Stack.Screen
         options={{headerShown: false}}
         name="Main"

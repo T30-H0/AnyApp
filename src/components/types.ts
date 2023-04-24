@@ -22,6 +22,7 @@ export interface ITextProps {
   children?: React.ReactNode;
   textAlign?: string;
   color?: string;
+  numberOfLines?: number;
 }
 
 export interface IButtonProps {
@@ -37,4 +38,10 @@ export interface IButtonProps {
 export interface IDivider {
   style?: ViewStyle;
   color?: string;
+}
+
+export interface IIconWithText {
+  icon: string;
+  style: StyleProp<ViewStyle>;
+  text: string;
 }

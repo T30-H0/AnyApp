@@ -12,7 +12,7 @@ const styleByType: any = (fontType: string) => {
 };
 
 const Text = (textProps: ITextProps) => {
-  const {style, type, textAlign, color, children, props} = textProps;
+  const {style, type, textAlign, color, children, ...props} = textProps;
 
   const textStyle = useMemo(() => {
     return {

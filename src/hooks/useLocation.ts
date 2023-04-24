@@ -1,6 +1,6 @@
-import Geolocation from '@react-native-community/geolocation';
 import {useEffect, useState} from 'react';
 import {Platform} from 'react-native';
+import Geolocation from 'react-native-geolocation-service';
 import {PERMISSIONS, RESULTS, check, request} from 'react-native-permissions';
 
 type Location = {
@@ -59,6 +59,7 @@ const useLocation = (): UseLocationHook => {
         ios: PERMISSIONS.IOS.LOCATION_ALWAYS,
         android: PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
       });
+
       if (!permission) {
         throw new Error('Could not get permission');
       }
@@ -69,7 +70,7 @@ const useLocation = (): UseLocationHook => {
 
   const getLocation = () => {
     Geolocation.getCurrentPosition(
-      position => {
+      (position: any) => {
         console.log('position', position);
         setLocation({
           ...position.coords,
@@ -77,9 +78,9 @@ const useLocation = (): UseLocationHook => {
           altitudeAccuracy: position.coords.altitudeAccuracy ?? 0,
         });
       },
-      error => {
+      (error: any) => {
         console.log('error', error);
-        if (error.PERMISSION_DENIED === 1) {
+        if (error.message === 'Location permission denied') {
           setPermissionStatus('denied');
         } else {
           setPermissionStatus('unavailable');
