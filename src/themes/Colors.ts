@@ -5,6 +5,7 @@ const APP_COLORS = {
   red: '#FF0101',
   black: '#000000',
   faceBook: '#4267b2',
+  blurGrey: '#F4F4F4',
 };
 
 export default APP_COLORS;

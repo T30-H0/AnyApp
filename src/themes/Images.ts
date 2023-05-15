@@ -7,6 +7,7 @@ import icArrowUp from '../assets/images/icons/icArrowUp.png';
 import icCloseEye from '../assets/images/icons/icCloseEye.png';
 import icCurrency from '../assets/images/icons/icCurrency.png';
 import icDateTime from '../assets/images/icons/icDateTime.png';
+import icEarth from '../assets/images/icons/icEarth.png';
 import icEditFill from '../assets/images/icons/icEditFill.png';
 import icGroup from '../assets/images/icons/icGroup.png';
 import icHeartFill from '../assets/images/icons/icHeartFill.png';
@@ -14,6 +15,7 @@ import icHeartOutLine from '../assets/images/icons/icHeartOutLine.png';
 import icHome from '../assets/images/icons/icHome.png';
 import icLocation from '../assets/images/icons/icLocation.png';
 import icMaleAndFemale from '../assets/images/icons/icMaleAndFemale.png';
+import icMode from '../assets/images/icons/icMode.png';
 import icOpenEye from '../assets/images/icons/icOpenEye.png';
 import icPlus from '../assets/images/icons/icPlus.png';
 import icProfile from '../assets/images/icons/icProfile.png';
@@ -34,6 +36,7 @@ const ICONS = {
   icDateTime,
   icHome,
   icMaleAndFemale,
+  icMode,
   icStatus,
   icArea,
   icRecent,
@@ -46,6 +49,7 @@ const ICONS = {
   icOpenEye,
   icCloseEye,
   icEditFill,
+  icEarth,
   icPlus,
   icSearch,
   icShare,
