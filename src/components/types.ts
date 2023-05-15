@@ -45,3 +45,10 @@ export interface IIconWithText {
   style: StyleProp<ViewStyle>;
   text: string;
 }
+
+export interface ICarouselHeader {
+  title: string;
+  onPress: () => void;
+  subTitle?: string;
+  style?: StyleProp<ViewStyle>;
+}

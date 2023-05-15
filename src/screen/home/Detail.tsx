@@ -1,30 +1,40 @@
-import {useRoute} from '@react-navigation/native';
+// import {useRoute} from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {DetailsScreenRouteProp} from '../../navigation/types';
+import {ImageBackground, SafeAreaView, StyleSheet} from 'react-native';
+import CommonHeader from '../../components/CommonHeader';
+// import {DetailsScreenRouteProp} from '../../navigation/types';
+import APP_COLORS from '../../themes/Colors';
+import {IMAGES} from '../../themes/Images';
+import {SCREEN_WIDTH} from '../../utils/Constant';
 
 const Detail = () => {
-  const route = useRoute<DetailsScreenRouteProp>();
-  const {state} = route?.params || {};
+  // const route = useRoute<DetailsScreenRouteProp>();
+  // const {state} = route?.params || {};
 
   return (
-    <View style={styles.container}>
-      <Text>
-        This <Text style={styles.text}>{state}</Text> from Home
-      </Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ImageBackground
+        source={IMAGES.imgDefaultImage}
+        style={styles.headerImage}
+        imageStyle={styles.imageStyle}
+        resizeMode="contain">
+        <CommonHeader />
+      </ImageBackground>
+    </SafeAreaView>
   );
 };
 
 export default Detail;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  container: {},
+
+  headerImage: {
+    width: SCREEN_WIDTH,
+    aspectRatio: 16 / 9,
   },
-  text: {
-    color: '#D3e',
+  imageStyle: {
+    tintColor: APP_COLORS.mainGrey,
+    backgroundColor: `${APP_COLORS.primary}20`,
   },
 });

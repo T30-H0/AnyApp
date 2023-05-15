@@ -9,7 +9,6 @@ import MainTabs from './Tabs';
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
-  // console.log('isSkip', isSkip);
   const initRouteName = useMemo(() => {
     return isSkip ? 'Main' : 'Intro';
   }, [isSkip]);
@@ -22,7 +21,7 @@ const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
         component={MainTabs}
       />
       <Stack.Screen
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         name="Detail"
         component={Detail}
       />

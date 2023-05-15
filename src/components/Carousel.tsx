@@ -1,5 +1,12 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {FlatList, Platform, StyleSheet, View} from 'react-native';
+import {
+  FlatList,
+  Platform,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import Animated, {
   Extrapolate,
@@ -12,6 +19,7 @@ import APP_COLORS from '../themes/Colors';
 import {ICONS} from '../themes/Images';
 import {SCREEN_WIDTH} from '../utils/Constant';
 import {formatCurrency} from '../utils/helpers';
+import CarouselHeader from './CarouselHeader';
 import LocalImage from './LocalImage';
 import Text from './Text';
 
@@ -21,10 +29,12 @@ const Item = ({
   item,
   index,
   scrollX,
+  onPressItem,
 }: {
   item: any;
   index: any;
   scrollX: any;
+  onPressItem: () => void;
 }) => {
   const size = useSharedValue(0.8);
   const inputRange = [
@@ -46,75 +56,100 @@ const Item = ({
   });
   return (
     <Animated.View key={String(index)} style={[styles.card, cardStyle]}>
-      <FastImage source={{uri: item?.image}} style={styles.image} />
-      <View style={styles.content}>
-        <Text
-          type="bold-16"
-          numberOfLines={2}
-          color={APP_COLORS.primary}
-          style={styles.txtHouseName}>
-          An Khe - Thanh Khe - Da Nang
-        </Text>
-
-        <View style={styles.row}>
-          <LocalImage icon={ICONS.icLocation} />
-          <Text style={styles.txtGeneral} type="normal-14" numberOfLines={1}>
-            255 Dien Bien Phu - Hoa Khe - Thanh Khe - Da Nang
-          </Text>
-        </View>
-
-        <View style={[styles.row, styles.mVer4]}>
-          <View style={styles.row}>
-            <LocalImage icon={ICONS.icDateTime} />
-            <Text style={styles.txtGeneral} type="normal-14">
-              24/04/2023
-            </Text>
-          </View>
-          <View style={styles.row}>
-            <LocalImage icon={ICONS.icArea} />
-            <Text style={styles.txtGeneral} type="normal-14">
-              25
-            </Text>
-          </View>
-        </View>
-
-        <View style={styles.row}>
-          <View style={styles.row}>
-            <LocalImage icon={ICONS.icStatus} />
-            <Text style={styles.txtGeneral} type="normal-14">
-              Opening
-            </Text>
-          </View>
-          <View style={styles.row}>
-            <LocalImage icon={ICONS.icMaleAndFemale} />
-            <Text style={styles.txtGeneral} type="normal-14">
-              Yes
-            </Text>
-          </View>
-        </View>
-
-        <View style={[styles.row, styles.price]}>
-          <LocalImage icon={ICONS.icCurrency} />
+      <TouchableOpacity activeOpacity={0.7} onPress={onPressItem}>
+        <FastImage source={{uri: item?.image}} style={styles.image} />
+        <View style={styles.content}>
           <Text
-            style={styles.txtGeneral}
-            type="bold-14"
-            color={APP_COLORS.primary}>
-            {formatCurrency(2000000)}
+            type="bold-16"
+            numberOfLines={2}
+            color={APP_COLORS.primary}
+            style={styles.txtHouseName}>
+            An Khe - Thanh Khe - Da Nang
           </Text>
+
+          <View style={styles.row}>
+            <LocalImage
+              tintColor={APP_COLORS.primary}
+              icon={ICONS.icLocation}
+            />
+            <Text style={styles.txtGeneral} type="normal-14" numberOfLines={1}>
+              255 Dien Bien Phu - Hoa Khe - Thanh Khe - Da Nang
+            </Text>
+          </View>
+
+          <View style={[styles.row, styles.mVer4]}>
+            <View style={styles.row}>
+              <LocalImage
+                tintColor={APP_COLORS.primary}
+                icon={ICONS.icDateTime}
+              />
+              <Text style={styles.txtGeneral} type="normal-14">
+                24/04/2023
+              </Text>
+            </View>
+            <View style={styles.row}>
+              <LocalImage tintColor={APP_COLORS.primary} icon={ICONS.icArea} />
+              <Text style={styles.txtGeneral} type="normal-14">
+                25
+              </Text>
+            </View>
+          </View>
+
+          <View style={styles.row}>
+            <View style={styles.row}>
+              <LocalImage
+                tintColor={APP_COLORS.primary}
+                icon={ICONS.icStatus}
+              />
+              <Text style={styles.txtGeneral} type="normal-14">
+                Opening
+              </Text>
+            </View>
+            <View style={styles.row}>
+              <LocalImage
+                tintColor={APP_COLORS.primary}
+                icon={ICONS.icMaleAndFemale}
+              />
+              <Text style={styles.txtGeneral} type="normal-14">
+                Yes
+              </Text>
+            </View>
+          </View>
+
+          <View style={[styles.row, styles.price]}>
+            <LocalImage
+              tintColor={APP_COLORS.primary}
+              icon={ICONS.icCurrency}
+            />
+            <Text
+              style={styles.txtGeneral}
+              type="bold-14"
+              color={APP_COLORS.primary}>
+              {formatCurrency(2000000)}
+            </Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     </Animated.View>
   );
 };
 
 const Carousel = () => {
+  const navigation = useNavigation<any>();
+
   const [scrollX, setScrollX] = useState(0);
+
+  const onPressItem = () => {
+    navigation.navigate('Detail');
+  };
 
   return (
     <Animated.View>
-      <Text type="bold-20" color={APP_COLORS.primary} style={styles.txtTitle}>
-        Newest
-      </Text>
+      <CarouselHeader
+        title="Newest"
+        subTitle="Find your favourite house"
+        onPress={() => {}}
+      />
       <AnimatedFlatList
         data={NEAR_BY}
         horizontal
@@ -122,7 +157,12 @@ const Carousel = () => {
         renderItem={({item, index}: {item: any; index: any}) => {
           return (
             <View>
-              <Item item={item} index={index} scrollX={scrollX} />
+              <Item
+                item={item}
+                index={index}
+                scrollX={scrollX}
+                onPressItem={onPressItem}
+              />
             </View>
           );
         }}
@@ -143,11 +183,6 @@ const Carousel = () => {
 export default Carousel;
 
 const styles = StyleSheet.create({
-  txtTitle: {
-    marginTop: 24,
-    marginBottom: 12,
-    marginHorizontal: 20,
-  },
   image: {
     width: CARD_LENGTH,
     height: SCREEN_WIDTH * 0.3,

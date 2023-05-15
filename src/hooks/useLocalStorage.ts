@@ -28,7 +28,7 @@ const removeData = async (key?: string) => {
     if (!key) {
       return;
     }
-    // await AsyncStorage.removeItem(key);
+    await AsyncStorage.removeItem(key);
   } catch (e) {}
 };
 
