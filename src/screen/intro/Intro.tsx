@@ -16,7 +16,7 @@ import APP_COLORS from '../../themes/Colors';
 import {HIT_SLOP, SCREEN_WIDTH} from '../../utils/Constant';
 
 const Intro = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<any>();
   const {setData} = useLocalStorage({
     key: STORAGE_KEYS.SKIP_INTRO,
   });
@@ -61,7 +61,7 @@ const Intro = () => {
         {INTRO_DATA.map((item, index) => {
           return (
             <View style={styles.body} key={String(index)}>
-              <RemoteImage icon={item.image} style={styles.image} />
+              <RemoteImage url={item.image} style={styles.image} />
               <Text
                 type="normal-16"
                 textAlign="center"

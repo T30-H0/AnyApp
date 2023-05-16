@@ -1,16 +1,15 @@
 import React from 'react';
 import FastImage, {FastImageProps, ImageStyle} from 'react-native-fast-image';
 import {StyleProp} from 'react-native/types';
-import APP_COLORS from '../themes/Colors';
 
 const RemoteImage = ({
   props,
-  icon,
+  url,
   style,
-  tintColor = APP_COLORS.primary,
+  tintColor,
 }: {
   props?: FastImageProps;
-  icon: any;
+  url: any;
   tintColor?: string;
   style?: StyleProp<ImageStyle>;
 }) => {
@@ -18,7 +17,7 @@ const RemoteImage = ({
     <FastImage
       {...props}
       style={style}
-      source={{uri: icon}}
+      source={{uri: url}}
       tintColor={tintColor}
       resizeMode={FastImage.resizeMode.contain}
     />
