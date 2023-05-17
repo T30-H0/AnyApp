@@ -3,10 +3,12 @@ import {IUser} from '../types';
 
 interface AppState {
   user: IUser;
+  appMode: string | null;
 }
 
 const initialState: AppState = {
   user: {},
+  appMode: 'light',
 };
 
 const appSlice = createSlice({
@@ -16,8 +18,11 @@ const appSlice = createSlice({
     setUser: (state, action: PayloadAction<IUser>) => {
       state.user = action.payload;
     },
+    setAppMode: (state, action: PayloadAction<string>) => {
+      state.appMode = action.payload;
+    },
   },
 });
 
-export const {setUser} = appSlice.actions;
+export const {setUser, setAppMode} = appSlice.actions;
 export default appSlice.reducer;

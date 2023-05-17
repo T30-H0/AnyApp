@@ -1,16 +1,33 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {LocalImage} from '../../components';
 import APP_COLORS from '../../themes/Colors';
 import {ICONS} from '../../themes/Images';
-import CommonRowDisplay from './components/CommonRowDisplay';
+import RowSection from './components/RowSection';
 
 const Profile = () => {
+  const navigation = useNavigation<any>();
+
+  const onLanguage = () => {
+    navigation.navigate('Languages', {});
+  };
+  const onTheme = () => {
+    navigation.navigate('Theme', {});
+  };
   return (
     <View style={styles.main}>
       <LocalImage icon={ICONS.icProfile} style={styles.icAvatar} />
-      <CommonRowDisplay title="English" leftIcon={ICONS.icEarth} />
-      <CommonRowDisplay title="Light-Mode" leftIcon={ICONS.icMode} />
+      <RowSection
+        onPress={onLanguage}
+        title="English"
+        leftIcon={ICONS.icEarth}
+      />
+      <RowSection
+        onPress={onTheme}
+        title="Light-Mode"
+        leftIcon={ICONS.icMode}
+      />
     </View>
   );
 };

@@ -23,6 +23,7 @@ import icRecent from '../assets/images/icons/icRecent.png';
 import icSearch from '../assets/images/icons/icSearch.png';
 import icShare from '../assets/images/icons/icShare.png';
 import icStatus from '../assets/images/icons/icStatus.png';
+import icTick from '../assets/images/icons/icTick.png';
 
 //images
 import imgGoogleLogo from '../assets/images/googleLogo.png';
@@ -55,6 +56,7 @@ const ICONS = {
   icShare,
   icHeartFill,
   icHeartOutLine,
+  icTick,
 };
 
 const IMAGES = {

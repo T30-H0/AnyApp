@@ -52,3 +52,6 @@ export interface ICarouselHeader {
   subTitle?: string;
   style?: StyleProp<ViewStyle>;
 }
+export interface IBottomSheet {
+  children?: React.ReactNode;
+}

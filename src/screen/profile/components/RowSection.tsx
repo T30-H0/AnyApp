@@ -6,9 +6,12 @@ import {ICONS} from '../../../themes/Images';
 import {SCREEN_WIDTH} from '../../../utils/Constant';
 import {ICommonRow} from './types';
 
-const CommonRowDisplay = ({leftIcon, title}: ICommonRow) => {
+const RowSection = ({leftIcon, title, onPress}: ICommonRow) => {
   return (
-    <TouchableOpacity style={styles.btnMain} activeOpacity={0.5}>
+    <TouchableOpacity
+      style={styles.btnMain}
+      activeOpacity={0.5}
+      onPress={onPress}>
       <View style={styles.row}>
         <LocalImage
           icon={leftIcon}
@@ -19,12 +22,12 @@ const CommonRowDisplay = ({leftIcon, title}: ICommonRow) => {
           {title}
         </Text>
       </View>
-      <LocalImage icon={ICONS.icArrowDown} />
+      <LocalImage icon={ICONS.icArrowRight} />
     </TouchableOpacity>
   );
 };
 
-export default CommonRowDisplay;
+export default RowSection;
 
 const styles = StyleSheet.create({
   row: {flex: 1, flexDirection: 'row', alignItems: 'center'},
