@@ -5,6 +5,7 @@ import {
 import React, {useMemo} from 'react';
 import {Platform} from 'react-native';
 import HeaderBackButton from '../components/HeaderBackButton';
+import {useAppMode} from '../hooks/useAppMode';
 import Login from '../screen/auth/Login';
 import Detail from '../screen/home/Detail';
 import Intro from '../screen/intro/Intro';
@@ -15,22 +16,34 @@ import MainTabs from './Tabs';
 // const Stack = createNativeStackNavigator<StackNavigatorParamList>();
 const Stack = createNativeStackNavigator();
 
-const SCREEN_OPTION: NativeStackNavigationOptions = {
-  headerBackTitleVisible: false,
-  orientation: 'portrait',
-  headerBackButtonMenuEnabled: false,
-  headerBackVisible: false,
-  headerLeft: () => <HeaderBackButton />,
-  headerShadowVisible: true,
-  headerTitleAlign: 'center',
-  gestureEnabled: true,
-  animation: Platform.select({
-    android: 'fade_from_bottom',
-    ios: 'default',
-  }),
+const renderHeader = () => {
+  return <HeaderBackButton />;
 };
-
 const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
+  const {appModeColor} = useAppMode();
+  const SCREEN_OPTION: NativeStackNavigationOptions = {
+    headerBackTitleVisible: false,
+    orientation: 'portrait',
+    headerBackButtonMenuEnabled: false,
+    headerBackVisible: false,
+    headerLeft: renderHeader,
+    headerShadowVisible: true,
+    headerTitleAlign: 'center',
+    headerTintColor: appModeColor.mainColor,
+    gestureEnabled: true,
+    animation: Platform.select({
+      android: 'fade_from_bottom',
+      ios: 'default',
+    }),
+    headerStyle: {
+      backgroundColor: appModeColor.mainBackgroundColor,
+    },
+    contentStyle: {
+      borderTopColor: appModeColor.mainColor,
+      borderTopWidth: 0.3,
+    },
+  };
+
   const initRouteName = useMemo(() => {
     return isSkip ? 'Main' : 'Intro';
   }, [isSkip]);

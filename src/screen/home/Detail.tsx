@@ -3,6 +3,7 @@ import React from 'react';
 import {ImageBackground, SafeAreaView, StyleSheet} from 'react-native';
 import CommonHeader from '../../components/CommonHeader';
 // import {DetailsScreenRouteProp} from '../../navigation/types';
+import ModeView from '../../components/ModeView';
 import APP_COLORS from '../../themes/Colors';
 import {IMAGES} from '../../themes/Images';
 import {SCREEN_WIDTH} from '../../utils/Constant';
@@ -13,13 +14,15 @@ const Detail = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground
-        source={IMAGES.imgDefaultImage}
-        style={styles.headerImage}
-        imageStyle={styles.imageStyle}
-        resizeMode="contain">
-        <CommonHeader />
-      </ImageBackground>
+      <ModeView style={styles.body}>
+        <ImageBackground
+          source={IMAGES.imgDefaultImage}
+          style={styles.headerImage}
+          imageStyle={styles.imageStyle}
+          resizeMode="contain">
+          <CommonHeader />
+        </ImageBackground>
+      </ModeView>
     </SafeAreaView>
   );
 };
@@ -27,7 +30,8 @@ const Detail = () => {
 export default Detail;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {flex: 1},
+  body: {flex: 1},
 
   headerImage: {
     width: SCREEN_WIDTH,

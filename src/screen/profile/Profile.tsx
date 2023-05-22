@@ -1,7 +1,8 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {LocalImage} from '../../components';
+import ModeView from '../../components/ModeView';
 import APP_COLORS from '../../themes/Colors';
 import {ICONS} from '../../themes/Images';
 import RowSection from './components/RowSection';
@@ -16,7 +17,7 @@ const Profile = () => {
     navigation.navigate('Theme', {});
   };
   return (
-    <View style={styles.main}>
+    <ModeView style={styles.main}>
       <LocalImage icon={ICONS.icProfile} style={styles.icAvatar} />
       <RowSection
         onPress={onLanguage}
@@ -28,7 +29,7 @@ const Profile = () => {
         title="Light-Mode"
         leftIcon={ICONS.icMode}
       />
-    </View>
+    </ModeView>
   );
 };
 

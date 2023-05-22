@@ -1,5 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import {
   FlatList,
   Platform,
@@ -136,6 +137,7 @@ const Item = ({
 
 const Carousel = () => {
   const navigation = useNavigation<any>();
+  const {t} = useTranslation();
 
   const [scrollX, setScrollX] = useState(0);
 
@@ -146,7 +148,7 @@ const Carousel = () => {
   return (
     <Animated.View>
       <CarouselHeader
-        title="Newest"
+        title={t('common.newEst')}
         subTitle="Find your favourite house"
         onPress={() => {}}
       />

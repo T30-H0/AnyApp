@@ -1,7 +1,11 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabNavigationOptions,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
 import {Image, ImageSourcePropType, StyleSheet} from 'react-native';
+import {useAppMode} from '../hooks/useAppMode';
 import Activities from '../screen/activities/Activities';
 import Home from '../screen/home/Home';
 import Profile from '../screen/profile/Profile';
@@ -12,6 +16,22 @@ import {ICONS} from '../themes/Images';
 const Tab = createBottomTabNavigator();
 
 const MainTabs = () => {
+  const {appModeColor} = useAppMode();
+
+  const SCREEN_OPTION: BottomTabNavigationOptions = {
+    headerShadowVisible: true,
+    headerTitleAlign: 'center',
+    headerTintColor: appModeColor.mainColor,
+    headerStyle: {
+      borderTopWidth: 1,
+      borderTopColor: appModeColor.mainColor,
+      backgroundColor: appModeColor.mainBackgroundColor,
+    },
+    tabBarStyle: {
+      backgroundColor: appModeColor.mainBackgroundColor,
+    },
+  };
+
   const getTabBarIcon = (focused: boolean, icon: ImageSourcePropType) => {
     return (
       <Image
@@ -21,7 +41,7 @@ const MainTabs = () => {
     );
   };
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={SCREEN_OPTION}>
       <Tab.Screen
         name="Home"
         component={Home}

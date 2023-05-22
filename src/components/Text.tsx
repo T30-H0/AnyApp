@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 import {Text as RNText} from 'react-native';
+import {useAppMode} from '../hooks/useAppMode';
 import {ITextProps} from './types';
 
 const styleByType: any = (fontType: string) => {
@@ -12,14 +13,15 @@ const styleByType: any = (fontType: string) => {
 };
 
 const Text = (textProps: ITextProps) => {
+  const {appModeColor} = useAppMode();
   const {style, type, textAlign, color, children, ...props} = textProps;
 
   const textStyle = useMemo(() => {
     return {
       textAlign,
-      color,
+      color: color || appModeColor.mainColor,
     };
-  }, [textAlign, color]);
+  }, [textAlign, color, appModeColor.mainColor]);
 
   return (
     <RNText {...props} style={[style, styleByType(type), textStyle]}>

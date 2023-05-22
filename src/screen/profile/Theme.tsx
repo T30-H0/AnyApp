@@ -1,42 +1,41 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
 import {LocalImage, Text} from '../../components';
-import {setAppMode} from '../../redux/appRedux';
-import {AppDispatch, RootState} from '../../redux/store';
+import ModeView from '../../components/ModeView';
+import {useAppMode} from '../../hooks/useAppMode';
 import APP_COLORS from '../../themes/Colors';
 import {ICONS} from '../../themes/Images';
 
 const Theme = () => {
-  const dispatch: AppDispatch = useDispatch();
-  const appMode = useSelector((state: RootState) => state.app.appMode);
-  console.log('appMode', appMode);
-
-  const onSelectAppMode = (mode: string) => {
-    dispatch(setAppMode(mode));
-  };
-
+  const {isLightMode, onSelectAppMode} = useAppMode();
   return (
-    <View style={styles.container}>
+    <ModeView style={styles.container}>
       <Text type="bold-16">Theme</Text>
       <View style={styles.content}>
         <TouchableOpacity
-          onPress={() => onSelectAppMode('dark')}
+          onPress={onSelectAppMode}
           activeOpacity={0.5}
           style={[styles.btnDark, styles.mainContent]}>
-          <Text type="normal-16">Dark</Text>
-          <LocalImage icon={ICONS.icTick} />
+          <Text type="normal-16" color={APP_COLORS.black}>
+            Dark
+          </Text>
+          {!isLightMode && (
+            <LocalImage icon={ICONS.icTick} tintColor={APP_COLORS.black} />
+          )}
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => onSelectAppMode('light')}
+          onPress={onSelectAppMode}
           activeOpacity={0.5}
           style={styles.mainContent}>
-          <Text type="normal-16">Light</Text>
-          <LocalImage icon={ICONS.icTick} />
+          <Text type="normal-16" color={APP_COLORS.black}>
+            {' '}
+            Light
+          </Text>
+          {isLightMode && <LocalImage icon={ICONS.icTick} />}
         </TouchableOpacity>
       </View>
-    </View>
+    </ModeView>
   );
 };
 
@@ -48,7 +47,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 12,
     marginTop: 8,
-    backgroundColor: APP_COLORS.white,
+    backgroundColor: APP_COLORS.greyL2,
   },
   btnDark: {
     borderBottomWidth: 1,

@@ -3,6 +3,7 @@ import {
   StyleProp,
   TextProps,
   TextStyle,
+  ViewProps,
   ViewStyle,
 } from 'react-native';
 
@@ -54,4 +55,10 @@ export interface ICarouselHeader {
 }
 export interface IBottomSheet {
   children?: React.ReactNode;
+}
+export interface IAView {
+  children?: React.ReactNode;
+  bgColor?: string;
+  props?: ViewProps;
+  style?: StyleProp<ViewStyle>;
 }
