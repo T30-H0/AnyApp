@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {LocalImage, Text} from '../../components';
 import ModeView from '../../components/ModeView';
@@ -8,6 +9,7 @@ import {ICONS} from '../../themes/Images';
 
 const Theme = () => {
   const {isLightMode, onSelectAppMode} = useAppMode();
+  const {t} = useTranslation();
   return (
     <ModeView style={styles.container}>
       <Text type="bold-16">Theme</Text>
@@ -17,7 +19,7 @@ const Theme = () => {
           activeOpacity={0.5}
           style={[styles.btnDark, styles.mainContent]}>
           <Text type="normal-16" color={APP_COLORS.black}>
-            Dark
+            {t('common.dark')}
           </Text>
           {!isLightMode && (
             <LocalImage icon={ICONS.icTick} tintColor={APP_COLORS.black} />
@@ -30,7 +32,7 @@ const Theme = () => {
           style={styles.mainContent}>
           <Text type="normal-16" color={APP_COLORS.black}>
             {' '}
-            Light
+            {t('common.light')}
           </Text>
           {isLightMode && <LocalImage icon={ICONS.icTick} />}
         </TouchableOpacity>

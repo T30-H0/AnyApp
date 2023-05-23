@@ -5,7 +5,12 @@
       "english": "English",
       "vietNam": "Viet Nam",
       "newEst": "Newest",
-      "Activities": "Activities"
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "activities": "Activities",
+      "profile": "Profile",
+      "languages": "Languages"
     }
   }
 }

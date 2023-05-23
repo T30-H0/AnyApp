@@ -1,12 +1,18 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {Text} from '../../components';
+import {setLanguge} from '../../redux/appRedux';
+import {AppDispatch} from '../../redux/store';
 
 const Languages = () => {
   const {i18n} = useTranslation();
+  const dispatch: AppDispatch = useDispatch();
+
   const onLanguaSelect = (value: string) => {
     i18n.changeLanguage(value);
+    dispatch(setLanguge(value));
   };
   return (
     <View style={styles.container}>

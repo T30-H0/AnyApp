@@ -4,6 +4,7 @@ import {
 } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
 
+import {useTranslation} from 'react-i18next';
 import {Image, ImageSourcePropType, StyleSheet} from 'react-native';
 import {useAppMode} from '../hooks/useAppMode';
 import Activities from '../screen/activities/Activities';
@@ -17,6 +18,7 @@ const Tab = createBottomTabNavigator();
 
 const MainTabs = () => {
   const {appModeColor} = useAppMode();
+  const {t} = useTranslation();
 
   const SCREEN_OPTION: BottomTabNavigationOptions = {
     headerShadowVisible: true,
@@ -54,6 +56,7 @@ const MainTabs = () => {
         name="Activities"
         component={Activities}
         options={{
+          title: t('common.activities') || '',
           tabBarIcon: ({focused}) => getTabBarIcon(focused, ICONS.icRecent),
         }}
       />
@@ -61,6 +64,7 @@ const MainTabs = () => {
         name="Profile"
         component={Profile}
         options={{
+          title: t('common.profile') || '',
           tabBarIcon: ({focused}) => getTabBarIcon(focused, ICONS.icProfile),
         }}
       />

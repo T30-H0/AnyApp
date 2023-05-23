@@ -1,5 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {StyleSheet} from 'react-native';
 import {LocalImage} from '../../components';
 import ModeView from '../../components/ModeView';
@@ -9,6 +10,7 @@ import RowSection from './components/RowSection';
 
 const Profile = () => {
   const navigation = useNavigation<any>();
+  const {t} = useTranslation();
 
   const onLanguage = () => {
     navigation.navigate('Languages', {});
@@ -21,12 +23,12 @@ const Profile = () => {
       <LocalImage icon={ICONS.icProfile} style={styles.icAvatar} />
       <RowSection
         onPress={onLanguage}
-        title="English"
+        title={t('common.english')}
         leftIcon={ICONS.icEarth}
       />
       <RowSection
         onPress={onTheme}
-        title="Light-Mode"
+        title={t('common.theme')}
         leftIcon={ICONS.icMode}
       />
     </ModeView>

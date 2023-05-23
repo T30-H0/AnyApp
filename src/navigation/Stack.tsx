@@ -3,6 +3,7 @@ import {
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 import React, {useMemo} from 'react';
+import {useTranslation} from 'react-i18next';
 import {Platform} from 'react-native';
 import HeaderBackButton from '../components/HeaderBackButton';
 import {useAppMode} from '../hooks/useAppMode';
@@ -21,6 +22,7 @@ const renderHeader = () => {
 };
 const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
   const {appModeColor} = useAppMode();
+  const {t} = useTranslation();
   const SCREEN_OPTION: NativeStackNavigationOptions = {
     headerBackTitleVisible: false,
     orientation: 'portrait',
@@ -79,7 +81,7 @@ const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
         component={Theme}
       />
       <Stack.Screen
-        options={{headerShown: true, title: 'Languages'}}
+        options={{headerShown: true, title: t('common.languages') || ''}}
         name="Languages"
         component={Languages}
       />

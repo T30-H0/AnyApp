@@ -5,7 +5,12 @@
       "english": "Tiếng Anh",
       "vietNam": "Tiếng Việt",
       "newEst": "Mới nhất",
-      "Activities": "Hoạt động"
+      "theme": "Chủ Đề",
+      "light": "Sáng",
+      "dark": "Tối",
+      "activities": "Hoạt động",
+      "profile": "Tôi",
+      "languages": "Ngôn Ngữ"
     }
   }
 }
