@@ -1,4 +1,4 @@
-package com.anyapp;
+package com.anyapp.develop;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;

@@ -1,3 +1,7 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "compilerOptions": {
+    // Other options...
+    "jsx": "react-native",
+    "esModuleInterop": true
+  }
 }

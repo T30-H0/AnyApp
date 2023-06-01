@@ -55,7 +55,9 @@ const Login = () => {
           }
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log('error', error);
+    }
   };
   return (
     <View style={styles.container}>

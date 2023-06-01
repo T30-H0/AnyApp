@@ -1,4 +1,4 @@
-package com.anyapp;
+package com.anyapp.develop;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
