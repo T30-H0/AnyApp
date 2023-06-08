@@ -3,11 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android": "ENVFILE=.env.dev react-native run-android",
+    "ios": "ENVFILE=.env.dev react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
+    "android-prod": "ENVFILE=.env.release react-native run-android",
+    "ios-dev": "ENVFILE=.env.dev react-native run-ios",
     "android:clean": "cd android && ./gradlew clean && cd ..",
     "pod": "npx react-native setup-ios-permissions && cd ios && pod install && cd .."
   },
@@ -25,6 +27,7 @@
     "react": "18.2.0",
     "react-i18next": "^12.3.1",
     "react-native": "0.71.4",
+    "react-native-config": "^1.5.1",
     "react-native-device-info": "^10.6.0",
     "react-native-fast-image": "^8.6.3",
     "react-native-fbsdk-next": "^11.2.0",

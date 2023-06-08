@@ -5,6 +5,7 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
+import Config from 'react-native-config';
 import {AccessToken, LoginManager} from 'react-native-fbsdk-next';
 import {Button, Divider, Input, Text} from '../../components';
 import APP_COLORS from '../../themes/Colors';
@@ -14,10 +15,13 @@ const Login = () => {
   const navigation = useNavigation<any>();
 
   useEffect(() => {
-    GoogleSignin.configure();
+    GoogleSignin.configure({
+      webClientId: Config.WEB_CLIENT_ID,
+    });
   }, []);
 
   const signIn = async () => {
+    console.log(' Config.WEB_CLIENT_ID', Config.WEB_CLIENT_ID);
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
@@ -25,6 +29,7 @@ const Login = () => {
         navigation.navigate('Main');
       }
     } catch (error: any) {
+      console.log('error', error);
       switch (error.code) {
         case statusCodes.SIGN_IN_CANCELLED:
           break;
