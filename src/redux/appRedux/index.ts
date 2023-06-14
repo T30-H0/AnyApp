@@ -26,8 +26,9 @@ const appSlice = createSlice({
     setLanguge: (state, action: PayloadAction<string>) => {
       state.language = action.payload;
     },
+    logout: () => initialState,
   },
 });
 
-export const {setUser, setAppMode, setLanguge} = appSlice.actions;
+export const {setUser, setAppMode, setLanguge, logout} = appSlice.actions;
 export default appSlice.reducer;

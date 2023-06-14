@@ -14,6 +14,7 @@ import icHeartFill from '../assets/images/icons/icHeartFill.png';
 import icHeartOutLine from '../assets/images/icons/icHeartOutLine.png';
 import icHome from '../assets/images/icons/icHome.png';
 import icLocation from '../assets/images/icons/icLocation.png';
+import icLogout from '../assets/images/icons/icLogout.png';
 import icMaleAndFemale from '../assets/images/icons/icMaleAndFemale.png';
 import icMode from '../assets/images/icons/icMode.png';
 import icOpenEye from '../assets/images/icons/icOpenEye.png';
@@ -40,6 +41,7 @@ const ICONS = {
   icMode,
   icStatus,
   icArea,
+  icLogout,
   icRecent,
   icProfile,
   icArrowBack,

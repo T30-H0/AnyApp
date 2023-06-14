@@ -7,6 +7,7 @@ import {IAppModeColor} from './types';
 export const useAppMode = () => {
   const dispatch: AppDispatch = useDispatch();
   const isLightMode = useSelector((state: RootState) => state.app.isLightMode);
+  const user = useSelector((state: RootState) => state.app.user);
 
   const onSelectAppMode = () => {
     dispatch(setAppMode(!isLightMode));
@@ -21,5 +22,6 @@ export const useAppMode = () => {
     onSelectAppMode,
     isLightMode,
     appModeColor,
+    user,
   };
 };

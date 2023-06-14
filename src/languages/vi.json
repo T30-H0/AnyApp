@@ -10,7 +10,9 @@
       "dark": "Tối",
       "activities": "Hoạt động",
       "profile": "Tôi",
-      "languages": "Ngôn Ngữ"
+      "languages": "Ngôn Ngữ",
+      "login": "Đăng nhập",
+      "logout": "Đăng xuất"
     }
   }
 }

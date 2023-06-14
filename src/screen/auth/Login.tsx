@@ -7,12 +7,16 @@ import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import Config from 'react-native-config';
 import {AccessToken, LoginManager} from 'react-native-fbsdk-next';
+import {useDispatch} from 'react-redux';
 import {Button, Divider, Input, Text} from '../../components';
+import {setUser} from '../../redux/appRedux';
+import {AppDispatch} from '../../redux/store';
 import APP_COLORS from '../../themes/Colors';
 import {IMAGES} from '../../themes/Images';
 
 const Login = () => {
   const navigation = useNavigation<any>();
+  const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -26,6 +30,7 @@ const Login = () => {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
       if (userInfo) {
+        dispatch(setUser(userInfo));
         navigation.navigate('Main');
       }
     } catch (error: any) {

@@ -12,6 +12,7 @@ import Detail from '../screen/home/Detail';
 import Intro from '../screen/intro/Intro';
 import Languages from '../screen/profile/Languages';
 import Theme from '../screen/profile/Theme';
+import {isEmpty} from '../utils/helpers';
 import MainTabs from './Tabs';
 
 // const Stack = createNativeStackNavigator<StackNavigatorParamList>();
@@ -21,7 +22,7 @@ const renderHeader = () => {
   return <HeaderBackButton />;
 };
 const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
-  const {appModeColor} = useAppMode();
+  const {appModeColor, user} = useAppMode();
   const {t} = useTranslation();
   const SCREEN_OPTION: NativeStackNavigationOptions = {
     headerBackTitleVisible: false,
@@ -47,8 +48,15 @@ const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
   };
 
   const initRouteName = useMemo(() => {
-    return isSkip ? 'Main' : 'Intro';
-  }, [isSkip]);
+    if (!isSkip) {
+      return 'Intro';
+    }
+    if (isEmpty(user)) {
+      return 'Login';
+    } else {
+      return 'Main';
+    }
+  }, [isSkip, user]);
 
   return (
     <Stack.Navigator

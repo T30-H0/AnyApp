@@ -14,11 +14,13 @@ const Button: React.FC<IButtonProps> = ({
   fill = true,
   titleColor,
   icon,
+  leftIcon,
 }) => {
   return (
     <TouchableOpacity
       style={[
         styles.button,
+        !fill && styles.btnOutLine,
         {backgroundColor: fill ? APP_COLORS.primary : APP_COLORS.white},
         buttonStyle,
       ]}
@@ -32,6 +34,7 @@ const Button: React.FC<IButtonProps> = ({
           {title}
         </Text>
       </View>
+      {leftIcon && <LocalImage icon={leftIcon} />}
     </TouchableOpacity>
   );
 };
@@ -49,6 +52,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  btnOutLine: {
+    borderWidth: 1,
+    borderColor: APP_COLORS.primary,
   },
 });
 

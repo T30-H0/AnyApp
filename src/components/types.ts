@@ -34,6 +34,7 @@ export interface IButtonProps {
   buttonStyle?: StyleProp<ViewStyle>;
   tittleStyle?: TextStyle;
   icon?: string;
+  leftIcon?: string;
 }
 
 export interface IDivider {

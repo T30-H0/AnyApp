@@ -10,7 +10,9 @@
       "dark": "Dark",
       "activities": "Activities",
       "profile": "Profile",
-      "languages": "Languages"
+      "languages": "Languages",
+      "login": "Login",
+      "logout": "Logout"
     }
   }
 }

@@ -6123,10 +6123,10 @@ react-native-geolocation-service@^5.3.1:
   resolved "https://registry.npmjs.org/react-native-geolocation-service/-/react-native-geolocation-service-5.3.1.tgz"
   integrity sha512-LTXPtPNmrdhx+yeWG47sAaCgQc3nG1z+HLLHlhK/5YfOgfLcAb9HAkhREPjQKPZOUx8pKZMIpdGFUGfJYtimXQ==
 
-react-native-gesture-handler@^2.10.0:
-  version "2.10.0"
-  resolved "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-2.10.0.tgz"
-  integrity sha512-vuNupfa8+6MAUMgbZMk5jSxrmqWyNnR/gR77/iuhdx6cPg1z2MJeeJNmqEtKQcF0InvHp45dOoyRK62peqTJ3Q==
+react-native-gesture-handler@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.12.0.tgz#59ca9d97e4c71f70b9c258f14a1a081f4c689976"
+  integrity sha512-rr+XwVzXAVpY8co25ukvyI38fKCxTQjz7WajeZktl8qUPdh1twnSExgpT47DqDi4n+m+OiJPAnHfZOkqqAQMOg==
   dependencies:
     "@egjs/hammerjs" "^2.0.17"
     hoist-non-react-statics "^3.3.0"
@@ -6138,6 +6138,11 @@ react-native-gradle-plugin@^0.71.16:
   version "0.71.16"
   resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.16.tgz"
   integrity sha512-H2BjG2zk7B7Wii9sXvd9qhCVRQYDAHSWdMw9tscmZBqSP62DkIWEQSk4/B2GhQ4aK9ydVXgtqR6tBeg3yy8TSA==
+
+react-native-modalize@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-modalize/-/react-native-modalize-2.1.1.tgz#dcb67d208f4c5bdc76f45075e727be43fd008561"
+  integrity sha512-4/7EZWsrUqAAkkAVEnOsSdpAPQaEBewX7TvwFuzgvGDzxKpq3O58I9SnSeU8QtG/r91XYHJNaU5dAuDrcLjUaQ==
 
 react-native-permissions@^3.8.0:
   version "3.8.0"
