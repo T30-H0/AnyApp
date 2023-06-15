@@ -6,6 +6,7 @@ import {
   ViewProps,
   ViewStyle,
 } from 'react-native';
+import {ImageStyle} from 'react-native-fast-image';
 
 export interface IInputProps {
   inputContainerStyle?: StyleProp<ViewStyle>;
@@ -42,10 +43,13 @@ export interface IDivider {
   color?: string;
 }
 
-export interface IIconWithText {
-  icon: string;
-  style: StyleProp<ViewStyle>;
+export interface IIconText {
+  icon?: string;
+  iconStyle?: StyleProp<ImageStyle>;
+  tintColor?: string;
+  style?: StyleProp<ViewStyle>;
   text: string;
+  textType?: string;
 }
 
 export interface ICarouselHeader {
@@ -62,4 +66,11 @@ export interface IAView {
   bgColor?: string;
   props?: ViewProps;
   style?: StyleProp<ViewStyle>;
+}
+
+export interface IToggleSwitch {
+  style?: StyleProp<ViewStyle>;
+  onPress: () => void;
+  title?: string;
+  isSelected?: any;
 }

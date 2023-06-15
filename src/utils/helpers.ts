@@ -27,4 +27,10 @@ const isEmpty = (value: any): boolean => {
   return false;
 };
 
-export {formatCurrency, isEmpty};
+const displayPhoneNumber = (numberString: string): string => {
+  const reversedString = numberString.split('').reverse().join('');
+  const groupedString = reversedString.match(/.{1,3}/g)?.join(' ') || '';
+  return groupedString.split('').reverse().join('');
+};
+
+export {displayPhoneNumber, formatCurrency, isEmpty};

@@ -3,17 +3,21 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, View} from 'react-native';
 import {useSelector} from 'react-redux';
-import {Button, LocalImage} from '../../components';
+import {Button} from '../../components';
 import ModeView from '../../components/ModeView';
+import {useAppMode} from '../../hooks/useAppMode';
 import {RootState} from '../../redux/store';
 import APP_COLORS from '../../themes/Colors';
 import {ICONS} from '../../themes/Images';
 import {isEmpty} from '../../utils/helpers';
+import ProfileSnapshot from './components/ProfileSnapshot';
 import RowSection from './components/RowSection';
 
 const Profile = () => {
   const navigation = useNavigation<any>();
   const {t} = useTranslation();
+  const {isLightMode} = useAppMode();
+
   // const dispatch: AppDispatch = useAppDispatch();
   const user = useSelector((state: RootState) => state.app.user);
 
@@ -29,8 +33,8 @@ const Profile = () => {
 
   return (
     <ModeView style={styles.main}>
+      <ProfileSnapshot />
       <View style={styles.fill}>
-        <LocalImage icon={ICONS.icProfile} style={styles.icAvatar} />
         <RowSection
           onPress={onLanguage}
           title={t('common.english')}
@@ -39,7 +43,7 @@ const Profile = () => {
         <RowSection
           onPress={onTheme}
           title={t('common.theme')}
-          leftIcon={ICONS.icMode}
+          leftIcon={isLightMode ? ICONS.icSun : ICONS.icMoon}
         />
       </View>
 
@@ -65,11 +69,6 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     backgroundColor: APP_COLORS.white,
-  },
-  icAvatar: {
-    width: 64,
-    height: 64,
-    margin: 20,
   },
   btnLogout: {
     marginBottom: 20,

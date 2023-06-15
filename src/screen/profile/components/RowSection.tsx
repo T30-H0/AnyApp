@@ -6,9 +6,15 @@ import {ICONS} from '../../../themes/Images';
 import {SCREEN_WIDTH} from '../../../utils/Constant';
 import {ICommonRow} from './types';
 
-const RowSection = ({leftIcon, title, onPress}: ICommonRow) => {
+const RowSection = ({
+  leftIcon,
+  title,
+  onPress,
+  disabled = false,
+}: ICommonRow) => {
   return (
     <TouchableOpacity
+      disabled={disabled}
       style={styles.btnMain}
       activeOpacity={0.5}
       onPress={onPress}>
