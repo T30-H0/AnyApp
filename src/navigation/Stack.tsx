@@ -10,6 +10,7 @@ import {useAppMode} from '../hooks/useAppMode';
 import Login from '../screen/auth/Login';
 import Detail from '../screen/home/Detail';
 import Intro from '../screen/intro/Intro';
+import EditProfile from '../screen/profile/EditProfile';
 import Languages from '../screen/profile/Languages';
 import Theme from '../screen/profile/Theme';
 import {isEmpty} from '../utils/helpers';
@@ -92,6 +93,11 @@ const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
         options={{headerShown: true, title: t('common.languages') || ''}}
         name="Languages"
         component={Languages}
+      />
+      <Stack.Screen
+        options={{headerShown: true, title: t('common.editProfile') || ''}}
+        name="EditProfile"
+        component={EditProfile}
       />
     </Stack.Navigator>
   );

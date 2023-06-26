@@ -1,11 +1,19 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {IconText, LocalImage, Text} from '../../../components';
 import APP_COLORS from '../../../themes/Colors';
 import {ICONS, IMAGES} from '../../../themes/Images';
 import {displayPhoneNumber} from '../../../utils/helpers';
+import {IProfileSnapshot} from './types';
 
-const ProfileSnapshot = () => {
+const ProfileSnapshot = (props: IProfileSnapshot) => {
+  const {navigate} = useNavigation<any>();
+  const {} = props;
+  const onEditProfile = () => {
+    navigate('EditProfile', {});
+  };
+
   return (
     <View style={styles.container}>
       <LocalImage icon={IMAGES.imgDefaultAvatar} style={styles.icAvatar} />
@@ -33,7 +41,7 @@ const ProfileSnapshot = () => {
         style={styles.marBottom12}
       />
 
-      <TouchableOpacity style={styles.btnEdit}>
+      <TouchableOpacity style={styles.btnEdit} onPress={onEditProfile}>
         <LocalImage icon={ICONS.icEdit} tintColor={APP_COLORS.primary} />
       </TouchableOpacity>
     </View>

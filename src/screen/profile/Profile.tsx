@@ -34,7 +34,7 @@ const Profile = () => {
   return (
     <ModeView style={styles.main}>
       <ProfileSnapshot />
-      <View style={styles.fill}>
+      <View style={styles.content}>
         <RowSection
           onPress={onLanguage}
           title={t('common.english')}
@@ -62,9 +62,10 @@ const Profile = () => {
 export default Profile;
 
 const styles = StyleSheet.create({
-  fill: {
+  content: {
     flex: 1,
     alignItems: 'center',
+    marginTop: 24,
   },
   main: {
     flex: 1,

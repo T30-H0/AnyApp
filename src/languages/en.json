@@ -12,7 +12,8 @@
       "profile": "Profile",
       "languages": "Languages",
       "login": "Login",
-      "logout": "Logout"
+      "logout": "Logout",
+      "editProfile": "Edit Profile"
     }
   }
 }
