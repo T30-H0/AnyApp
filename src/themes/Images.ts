@@ -36,6 +36,7 @@ import imgGoogleLogo from '../assets/images/googleLogo.png';
 import imgDefaultAvatar from '../assets/images/imgDefaultAvatar.png';
 import imgDefaultImage from '../assets/images/imgHouseDefault.png';
 import imgFaceBookLogo from '../assets/images/logoFacebook.png';
+import imgMainLogo from '../assets/images/imgMainLogo.png';
 
 const ICONS = {
   icCurrency,
@@ -77,6 +78,7 @@ const IMAGES = {
   imgFaceBookLogo,
   imgDefaultImage,
   imgDefaultAvatar,
+  imgMainLogo,
 };
 
 export {ICONS, IMAGES};

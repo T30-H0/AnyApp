@@ -15,6 +15,7 @@ const Input = forwardRef((props: IInputProps, _ref) => {
     placeHolderStyle,
     inputContainerStyle,
     style,
+    icon,
   } = props;
   return (
     <View style={[styles.container, style]}>
@@ -25,11 +26,13 @@ const Input = forwardRef((props: IInputProps, _ref) => {
           error ? {borderColor: APP_COLORS.red} : {},
           inputContainerStyle,
         ]}>
-        <LocalImage
-          icon={ICONS.icSearch}
-          style={styles.icon}
-          tintColor={APP_COLORS.primary}
-        />
+        {icon && (
+          <LocalImage
+            icon={ICONS.icSearch}
+            style={styles.icon}
+            tintColor={APP_COLORS.primary}
+          />
+        )}
         <TextInput
           style={[styles.inputStyle]}
           placeholder={placeHolder}
@@ -48,9 +51,7 @@ const Input = forwardRef((props: IInputProps, _ref) => {
 export default Input;
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: APP_COLORS.white,
-  },
+  container: {},
   inputContainer: {
     marginTop: 4,
     paddingVertical: 1,
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: SCREEN_WIDTH - 40,
     borderColor: APP_COLORS.primary,
+    backgroundColor: APP_COLORS.white,
   },
   icon: {
     width: 20,

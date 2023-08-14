@@ -15,6 +15,7 @@ export interface IInputProps {
   placeHolder?: string;
   placeHolderStyle?: ColorValue;
   error?: string;
+  icon?: string;
 }
 
 export interface ITextProps {

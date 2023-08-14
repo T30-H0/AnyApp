@@ -520,7 +520,7 @@
 				ENABLE_BITCODE = NO;
 				ENVFILE = .env.dev;
 				INFOPLIST_FILE = AnyApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -553,7 +553,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENVFILE = .env.release;
 				INFOPLIST_FILE = AnyApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

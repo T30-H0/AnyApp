@@ -8,7 +8,7 @@ import {StyleSheet, View} from 'react-native';
 import Config from 'react-native-config';
 import {AccessToken, LoginManager} from 'react-native-fbsdk-next';
 import {useDispatch} from 'react-redux';
-import {Button, Divider, Input, Text} from '../../components';
+import {Button, Divider, Input, LocalImage, Text} from '../../components';
 import {setUser} from '../../redux/appRedux';
 import {AppDispatch} from '../../redux/store';
 import APP_COLORS from '../../themes/Colors';
@@ -25,7 +25,6 @@ const Login = () => {
   }, []);
 
   const signIn = async () => {
-    console.log(' Config.WEB_CLIENT_ID', Config.WEB_CLIENT_ID);
     try {
       await GoogleSignin.hasPlayServices();
       const userInfo = await GoogleSignin.signIn();
@@ -34,7 +33,6 @@ const Login = () => {
         navigation.navigate('Main');
       }
     } catch (error: any) {
-      console.log('error', error);
       switch (error.code) {
         case statusCodes.SIGN_IN_CANCELLED:
           break;
@@ -65,13 +63,12 @@ const Login = () => {
           }
         }
       }
-    } catch (error) {
-      console.log('error', error);
-    }
+    } catch (error) {}
   };
   return (
     <View style={styles.container}>
-      <Input error="Invalid email" />
+      <LocalImage icon={IMAGES.imgMainLogo} style={styles.mainLogo} />
+      <Input label="Email" placeHolder="Enter your email" />
       <Input
         label="Password"
         style={styles.pass}
@@ -128,4 +125,5 @@ const styles = StyleSheet.create({
   txtOr: {
     marginHorizontal: 20,
   },
+  mainLogo: {width: 50, height: 50},
 });
