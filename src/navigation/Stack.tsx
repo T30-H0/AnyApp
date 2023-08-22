@@ -59,46 +59,62 @@ const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
     }
   }, [isSkip, user]);
 
+  type ScreenConfig = {
+    name: string;
+    component: React.ComponentType<any>;
+    options?: object;
+  };
+
+  const SCREENS: ScreenConfig[] = [
+    {
+      name: 'Intro',
+      component: Intro,
+      options: {headerShown: false},
+    },
+    {
+      name: 'Login',
+      component: Login,
+      options: {headerShown: false},
+    },
+    {
+      name: 'Main',
+      component: MainTabs,
+      options: {headerShown: false},
+    },
+    {
+      name: 'Detail',
+      component: Detail,
+      options: {headerShown: false},
+    },
+    {
+      name: 'EditProfile',
+      component: EditProfile,
+      options: {headerShown: false},
+    },
+    {
+      name: 'Theme',
+      component: Theme,
+      options: {headerShown: true, title: 'Themes'},
+    },
+    {
+      name: 'Languages',
+      component: Languages,
+      options: {headerShown: true, title: t('common.editProfile') || ''},
+    },
+  ];
+
   return (
     <Stack.Navigator
       initialRouteName={initRouteName}
       screenOptions={SCREEN_OPTION}>
-      {/* auth */}
-      <Stack.Screen
-        name="Intro"
-        component={Intro}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{headerShown: false}}
-      />
-      <Stack.Screen
-        options={{headerShown: false}}
-        name="Main"
-        component={MainTabs}
-      />
-      <Stack.Screen
-        options={{headerShown: false}}
-        name="Detail"
-        component={Detail}
-      />
-      <Stack.Screen
-        options={{headerShown: true, title: 'Theme'}}
-        name="Theme"
-        component={Theme}
-      />
-      <Stack.Screen
-        options={{headerShown: true, title: t('common.languages') || ''}}
-        name="Languages"
-        component={Languages}
-      />
-      <Stack.Screen
-        options={{headerShown: true, title: t('common.editProfile') || ''}}
-        name="EditProfile"
-        component={EditProfile}
-      />
+      {SCREENS.map(screen => (
+        <Stack.Screen
+          key={screen.name}
+          name={screen.name}
+          component={screen.component}
+          options={screen.options}
+        />
+      ))}
     </Stack.Navigator>
   );
 };

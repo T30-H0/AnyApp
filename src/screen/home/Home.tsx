@@ -1,11 +1,34 @@
-import React from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Linking, ScrollView, StyleSheet, View} from 'react-native';
 import {Input} from '../../components';
 import Carousel from '../../components/Carousel';
 import APP_COLORS from '../../themes/Colors';
 import {HAS_NOTCH, SCREEN_WIDTH} from '../../utils/Constant';
 
+const useInitialURL = () => {
+  const [url, setUrl] = useState<string | null>(null);
+  const [processing, setProcessing] = useState(true);
+
+  useEffect(() => {
+    const getUrlAsync = async () => {
+      const initialUrl = await Linking.getInitialURL();
+
+      setTimeout(() => {
+        setUrl(initialUrl);
+        setProcessing(false);
+      }, 1000);
+    };
+
+    getUrlAsync();
+  }, []);
+
+  return {url, processing};
+};
+
 const Home = () => {
+  const {url: initialUrl, processing} = useInitialURL();
+  console.log('init', initialUrl);
+  console.log('processing', processing);
   return (
     <View style={styles.home}>
       <View style={styles.header}>
@@ -34,6 +57,7 @@ const styles = StyleSheet.create({
     backgroundColor: APP_COLORS.white,
   },
   header: {
+    paddingTop: 20,
     backgroundColor: APP_COLORS.primary,
     height: SCREEN_WIDTH * 0.5,
   },
@@ -44,13 +68,5 @@ const styles = StyleSheet.create({
   },
   inputContainerStyle: {
     marginTop: 0,
-  },
-  body: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-  },
-  btnGetLocation: {
-    marginVertical: 20,
   },
 });

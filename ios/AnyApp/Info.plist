@@ -36,6 +36,16 @@
 				<string>com.googleusercontent.apps.96016246868-o32b2fmm6tut84ojbuccu6kkknn6tqfi</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.anyapp.develop</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>anyapp</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
@@ -63,14 +73,14 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>$(APP_NAME) would like to use your location to show you house for rent in your area</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-  	<string>$(APP_NAME) would like to use your location to show you house for rent in your area</string>
-  	<key>NSLocationAlwaysUsageDescription</key>
-  	<string>$(APP_NAME) would like to use your location to show you house for rent in your area</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(APP_NAME) would like to use the camera to store photos against your Profile.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>$(APP_NAME) would like to use your location to show you house for rent in your area</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(APP_NAME) would like to use your location to show you house for rent in your area</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(APP_NAME) would like to use your location to show you house for rent in your area</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(APP_NAME) would like to use the photo library to store photos against your Profile.</string>
 	<key>UILaunchStoryboardName</key>
