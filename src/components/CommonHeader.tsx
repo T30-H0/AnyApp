@@ -16,7 +16,7 @@ const CommonHeader = () => {
       <TouchableOpacity hitSlop={HIT_SLOP} style={styles.btn} onPress={onBack}>
         <LocalImage
           tintColor={APP_COLORS.primary}
-          icon={ICONS.icArrowBack}
+          image={ICONS.icArrowBack}
           style={styles.icon}
         />
       </TouchableOpacity>
@@ -25,7 +25,7 @@ const CommonHeader = () => {
         <TouchableOpacity hitSlop={HIT_SLOP} style={styles.btn}>
           <LocalImage
             tintColor={APP_COLORS.primary}
-            icon={ICONS.icShare}
+            image={ICONS.icShare}
             style={styles.icon}
           />
         </TouchableOpacity>
@@ -35,7 +35,7 @@ const CommonHeader = () => {
           style={[styles.btn, styles.marLeft12]}>
           <LocalImage
             tintColor={APP_COLORS.primary}
-            icon={ICONS.icHeartOutLine}
+            image={ICONS.icHeartOutLine}
             style={styles.icon}
           />
         </TouchableOpacity>

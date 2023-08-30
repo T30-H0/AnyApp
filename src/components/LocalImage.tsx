@@ -5,12 +5,12 @@ import {StyleProp} from 'react-native/types';
 
 const LocalImage = ({
   props,
-  icon,
+  image,
   style,
   tintColor,
 }: {
   props?: FastImageProps;
-  icon: any;
+  image: any;
   tintColor?: string;
   style?: StyleProp<ImageStyle>;
 }) => {
@@ -18,7 +18,7 @@ const LocalImage = ({
     <FastImage
       {...props}
       style={[styles.main, style]}
-      source={icon}
+      source={image}
       tintColor={tintColor}
       resizeMode={FastImage.resizeMode.contain}
     />

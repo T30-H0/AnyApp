@@ -75,3 +75,9 @@ export interface IToggleSwitch {
   title?: string;
   isSelected?: any;
 }
+
+export interface SkeletonComponentProps {
+  width?: number;
+  height?: number;
+  borderRadius?: number;
+}

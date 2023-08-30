@@ -28,7 +28,7 @@ const Input = forwardRef((props: IInputProps, _ref) => {
         ]}>
         {icon && (
           <LocalImage
-            icon={ICONS.icSearch}
+            image={ICONS.icSearch}
             style={styles.icon}
             tintColor={APP_COLORS.primary}
           />

@@ -2,18 +2,19 @@ import {
   NativeStackNavigationOptions,
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
-import React, {useMemo} from 'react';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Platform} from 'react-native';
 import HeaderBackButton from '../components/HeaderBackButton';
 import {useAppMode} from '../hooks/useAppMode';
+import CamVideoRecorder from '../screen/activities/subActivitiesScreen/CamVideoRecorder';
 import Login from '../screen/auth/Login';
 import Detail from '../screen/home/Detail';
 import Intro from '../screen/intro/Intro';
 import EditProfile from '../screen/profile/EditProfile';
 import Languages from '../screen/profile/Languages';
 import Theme from '../screen/profile/Theme';
-import {isEmpty} from '../utils/helpers';
+import {SCREEN} from './Screen';
 import MainTabs from './Tabs';
 
 // const Stack = createNativeStackNavigator<StackNavigatorParamList>();
@@ -48,16 +49,16 @@ const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
     },
   };
 
-  const initRouteName = useMemo(() => {
-    if (!isSkip) {
-      return 'Intro';
-    }
-    if (isEmpty(user)) {
-      return 'Login';
-    } else {
-      return 'Main';
-    }
-  }, [isSkip, user]);
+  // const initRouteName = useMemo(() => {
+  //   if (!isSkip) {
+  //     return 'Intro';
+  //   }
+  //   if (isEmpty(user)) {
+  //     return 'Login';
+  //   } else {
+  //     return 'Main';
+  //   }
+  // }, [isSkip, user]);
 
   type ScreenConfig = {
     name: string;
@@ -67,46 +68,49 @@ const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
 
   const SCREENS: ScreenConfig[] = [
     {
-      name: 'Intro',
+      name: SCREEN.INTRO,
       component: Intro,
       options: {headerShown: false},
     },
     {
-      name: 'Login',
+      name: SCREEN.LOGIN,
       component: Login,
       options: {headerShown: false},
     },
     {
-      name: 'Main',
+      name: SCREEN.MAIN,
       component: MainTabs,
       options: {headerShown: false},
     },
     {
-      name: 'Detail',
+      name: SCREEN.DETAIL,
       component: Detail,
       options: {headerShown: false},
     },
     {
-      name: 'EditProfile',
+      name: SCREEN.EDIT_PROFILE,
       component: EditProfile,
       options: {headerShown: false},
     },
     {
-      name: 'Theme',
+      name: SCREEN.THEME,
       component: Theme,
       options: {headerShown: true, title: 'Themes'},
     },
     {
-      name: 'Languages',
+      name: SCREEN.LANGUAGES,
       component: Languages,
       options: {headerShown: true, title: t('common.editProfile') || ''},
+    },
+    {
+      name: SCREEN.CAM_VIDEO_RECORDER,
+      component: CamVideoRecorder,
+      options: {headerShown: false},
     },
   ];
 
   return (
-    <Stack.Navigator
-      initialRouteName={initRouteName}
-      screenOptions={SCREEN_OPTION}>
+    <Stack.Navigator initialRouteName={'Main'} screenOptions={SCREEN_OPTION}>
       {SCREENS.map(screen => (
         <Stack.Screen
           key={screen.name}

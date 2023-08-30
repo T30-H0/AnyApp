@@ -17,7 +17,7 @@ const IconText = (props: IIconText) => {
   return (
     <View style={[style, styles.contentStyle]}>
       <LocalImage
-        icon={icon}
+        image={icon}
         style={[styles.iconStyle, iconStyle]}
         tintColor={tintColor}
       />

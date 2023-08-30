@@ -13,7 +13,9 @@
       "languages": "Languages",
       "login": "Login",
       "logout": "Logout",
-      "editProfile": "Edit Profile"
+      "editProfile": "Edit Profile",
+      "photo": "Photo",
+      "video": "Video"
     }
   }
 }

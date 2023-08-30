@@ -16,6 +16,7 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 import {NEAR_BY} from '../data';
+import {SCREEN} from '../navigation/Screen';
 import APP_COLORS from '../themes/Colors';
 import {ICONS} from '../themes/Images';
 import {SCREEN_WIDTH} from '../utils/Constant';
@@ -71,7 +72,7 @@ const Item = ({
           <View style={styles.row}>
             <LocalImage
               tintColor={APP_COLORS.primary}
-              icon={ICONS.icLocation}
+              image={ICONS.icLocation}
             />
             <Text style={styles.txtGeneral} type="normal-14" numberOfLines={1}>
               255 Dien Bien Phu - Hoa Khe - Thanh Khe - Da Nang
@@ -82,14 +83,14 @@ const Item = ({
             <View style={styles.row}>
               <LocalImage
                 tintColor={APP_COLORS.primary}
-                icon={ICONS.icDateTime}
+                image={ICONS.icDateTime}
               />
               <Text style={styles.txtGeneral} type="normal-14">
                 24/04/2023
               </Text>
             </View>
             <View style={styles.row}>
-              <LocalImage tintColor={APP_COLORS.primary} icon={ICONS.icArea} />
+              <LocalImage tintColor={APP_COLORS.primary} image={ICONS.icArea} />
               <Text style={styles.txtGeneral} type="normal-14">
                 25
               </Text>
@@ -100,7 +101,7 @@ const Item = ({
             <View style={styles.row}>
               <LocalImage
                 tintColor={APP_COLORS.primary}
-                icon={ICONS.icStatus}
+                image={ICONS.icStatus}
               />
               <Text style={styles.txtGeneral} type="normal-14">
                 Opening
@@ -109,7 +110,7 @@ const Item = ({
             <View style={styles.row}>
               <LocalImage
                 tintColor={APP_COLORS.primary}
-                icon={ICONS.icMaleAndFemale}
+                image={ICONS.icMaleAndFemale}
               />
               <Text style={styles.txtGeneral} type="normal-14">
                 Yes
@@ -120,7 +121,7 @@ const Item = ({
           <View style={[styles.row, styles.price]}>
             <LocalImage
               tintColor={APP_COLORS.primary}
-              icon={ICONS.icCurrency}
+              image={ICONS.icCurrency}
             />
             <Text
               style={styles.txtGeneral}
@@ -142,7 +143,7 @@ const Carousel = () => {
   const [scrollX, setScrollX] = useState(0);
 
   const onPressItem = () => {
-    navigation.navigate('Detail');
+    navigation.navigate(SCREEN.DETAIL);
   };
 
   return (

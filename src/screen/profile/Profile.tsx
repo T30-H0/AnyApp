@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux';
 import {Button} from '../../components';
 import ModeView from '../../components/ModeView';
 import {useAppMode} from '../../hooks/useAppMode';
+import {SCREEN} from '../../navigation/Screen';
 import {RootState} from '../../redux/store';
 import APP_COLORS from '../../themes/Colors';
 import {ICONS} from '../../themes/Images';
@@ -22,10 +23,10 @@ const Profile = () => {
   const user = useSelector((state: RootState) => state.app.user);
 
   const onLanguage = () => {
-    navigation.navigate('Languages', {});
+    navigation.navigate(SCREEN.LANGUAGES, {});
   };
   const onTheme = () => {
-    navigation.navigate('Theme', {});
+    navigation.navigate(SCREEN.THEME, {});
   };
   const onLogout = async () => {
     // await dispatch(logout);

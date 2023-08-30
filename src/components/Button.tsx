@@ -25,7 +25,7 @@ const Button: React.FC<IButtonProps> = ({
         buttonStyle,
       ]}
       onPress={onPress}>
-      {icon && <LocalImage icon={icon} />}
+      {icon && <LocalImage image={icon} />}
       <View style={styles.txtTitle}>
         <Text
           type="bold-16"
@@ -34,7 +34,7 @@ const Button: React.FC<IButtonProps> = ({
           {title}
         </Text>
       </View>
-      {leftIcon && <LocalImage icon={leftIcon} />}
+      {leftIcon && <LocalImage image={leftIcon} />}
     </TouchableOpacity>
   );
 };

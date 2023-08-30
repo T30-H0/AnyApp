@@ -5,7 +5,6 @@ import {ITextProps} from './types';
 
 const styleByType: any = (fontType: string) => {
   const FONT_TYPE = fontType?.split('-');
-
   return {
     fontWeight: FONT_TYPE?.[0] || 'normal',
     fontSize: Number(FONT_TYPE?.[1]) || 14,

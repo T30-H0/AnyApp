@@ -12,7 +12,7 @@ const HeaderBackButton = () => {
   return (
     <TouchableOpacity onPress={goBack}>
       <LocalImage
-        icon={ICONS.icArrowLeft}
+        image={ICONS.icArrowLeft}
         tintColor={appModeColor.mainColor}
         style={styles.button}
       />

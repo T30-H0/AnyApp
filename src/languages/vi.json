@@ -13,7 +13,9 @@
       "languages": "Ngôn Ngữ",
       "login": "Đăng nhập",
       "logout": "Đăng xuất",
-      "editProfile": "Chỉnh Sửa Thông Tin"
+      "editProfile": "Chỉnh Sửa Thông Tin",
+      "photo": "Máy ảnh",
+      "video": "Video"
     }
   }
 }

@@ -12,6 +12,7 @@ import {Text} from '../../components';
 import RemoteImage from '../../components/RemoteImage';
 import {INTRO_DATA} from '../../data';
 import useLocalStorage, {STORAGE_KEYS} from '../../hooks/useLocalStorage';
+import {SCREEN} from '../../navigation/Screen';
 import APP_COLORS from '../../themes/Colors';
 import {HIT_SLOP, SCREEN_WIDTH} from '../../utils/Constant';
 
@@ -31,7 +32,7 @@ const Intro = () => {
 
   const onContinue = () => {
     setData(true);
-    navigation.navigate('Login');
+    navigation.navigate(SCREEN.MAIN);
   };
 
   const renderFooter = () => {

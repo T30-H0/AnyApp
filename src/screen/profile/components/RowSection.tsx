@@ -20,7 +20,7 @@ const RowSection = ({
       onPress={onPress}>
       <View style={styles.row}>
         <LocalImage
-          icon={leftIcon}
+          image={leftIcon}
           tintColor={APP_COLORS.primary}
           style={styles.leftIcon}
         />
@@ -28,7 +28,7 @@ const RowSection = ({
           {title}
         </Text>
       </View>
-      <LocalImage icon={ICONS.icArrowRight} />
+      <LocalImage image={ICONS.icArrowRight} />
     </TouchableOpacity>
   );
 };

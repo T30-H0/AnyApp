@@ -16,7 +16,7 @@ const ProfileSnapshot = (props: IProfileSnapshot) => {
 
   return (
     <View style={styles.container}>
-      <LocalImage icon={IMAGES.imgDefaultAvatar} style={styles.icAvatar} />
+      <LocalImage image={IMAGES.imgDefaultAvatar} style={styles.icAvatar} />
       <Text type="bold-16" numberOfLines={2} style={styles.txtName}>
         Michael Code
       </Text>
@@ -42,7 +42,7 @@ const ProfileSnapshot = (props: IProfileSnapshot) => {
       />
 
       <TouchableOpacity style={styles.btnEdit} onPress={onEditProfile}>
-        <LocalImage icon={ICONS.icEdit} tintColor={APP_COLORS.primary} />
+        <LocalImage image={ICONS.icEdit} tintColor={APP_COLORS.primary} />
       </TouchableOpacity>
     </View>
   );

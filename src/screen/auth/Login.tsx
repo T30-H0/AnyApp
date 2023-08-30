@@ -9,6 +9,7 @@ import Config from 'react-native-config';
 import {AccessToken, LoginManager} from 'react-native-fbsdk-next';
 import {useDispatch} from 'react-redux';
 import {Button, Divider, Input, LocalImage, Text} from '../../components';
+import {SCREEN} from '../../navigation/Screen';
 import {setUser} from '../../redux/appRedux';
 import {AppDispatch} from '../../redux/store';
 import APP_COLORS from '../../themes/Colors';
@@ -30,7 +31,7 @@ const Login = () => {
       const userInfo = await GoogleSignin.signIn();
       if (userInfo) {
         dispatch(setUser(userInfo));
-        navigation.navigate('Main');
+        navigation.navigate(SCREEN.MAIN);
       }
     } catch (error: any) {
       switch (error.code) {
@@ -59,7 +60,7 @@ const Login = () => {
         } else {
           const tokenResponse = await AccessToken.getCurrentAccessToken();
           if (tokenResponse) {
-            navigation.navigate('Main');
+            navigation.navigate(SCREEN.MAIN);
           }
         }
       }
@@ -67,7 +68,7 @@ const Login = () => {
   };
   return (
     <View style={styles.container}>
-      <LocalImage icon={IMAGES.imgMainLogo} style={styles.mainLogo} />
+      <LocalImage image={IMAGES.imgMainLogo} style={styles.mainLogo} />
       <Input label="Email" placeHolder="Enter your email" />
       <Input
         label="Password"

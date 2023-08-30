@@ -22,7 +22,7 @@ const Theme = () => {
             {t('common.dark')}
           </Text>
           {!isLightMode && (
-            <LocalImage icon={ICONS.icTick} tintColor={APP_COLORS.black} />
+            <LocalImage image={ICONS.icTick} tintColor={APP_COLORS.black} />
           )}
         </TouchableOpacity>
 
@@ -34,7 +34,7 @@ const Theme = () => {
             {' '}
             {t('common.light')}
           </Text>
-          {isLightMode && <LocalImage icon={ICONS.icTick} />}
+          {isLightMode && <LocalImage image={ICONS.icTick} />}
         </TouchableOpacity>
       </View>
     </ModeView>

@@ -9,6 +9,8 @@ const APP_COLORS = {
   greyL2: '#F5F5F5',
   neutralBlue: '#D0D5DD',
   borderColor: '#ACB2B8',
+  skeletonBackground: '#E0E0E0',
+  darkPink: '#e500bb',
 };
 
 export default APP_COLORS;

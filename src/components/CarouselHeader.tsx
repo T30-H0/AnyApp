@@ -23,7 +23,7 @@ const CarouselHeader = ({title, subTitle, onPress, style}: ICarouselHeader) => {
         <Text type="normal-14" color={APP_COLORS.primary}>
           View all
         </Text>
-        <LocalImage icon={ICONS.icArrowRight} tintColor={APP_COLORS.primary} />
+        <LocalImage image={ICONS.icArrowRight} tintColor={APP_COLORS.primary} />
       </TouchableOpacity>
     </View>
   );
