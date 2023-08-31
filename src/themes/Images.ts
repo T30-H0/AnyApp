@@ -7,6 +7,8 @@ import icArrowUp from '../assets/images/icons/icArrowUp.png';
 import icCalendar from '../assets/images/icons/icCalendar.png';
 import icCameraWithHeart from '../assets/images/icons/icCameraWithHeart.png';
 import icCloseEye from '../assets/images/icons/icCloseEye.png';
+import icComment from '../assets/images/icons/icComment.png';
+import icContactTo from '../assets/images/icons/icContactTo.png';
 import icCurrency from '../assets/images/icons/icCurrency.png';
 import icDateTime from '../assets/images/icons/icDateTime.png';
 import icEarth from '../assets/images/icons/icEarth.png';
@@ -17,10 +19,15 @@ import icGroup from '../assets/images/icons/icGroup.png';
 import icHeartFill from '../assets/images/icons/icHeartFill.png';
 import icHeartOutLine from '../assets/images/icons/icHeartOutLine.png';
 import icHome from '../assets/images/icons/icHome.png';
+import icLikeFill from '../assets/images/icons/icLikeFill.png';
+import icLikeOutLine from '../assets/images/icons/icLikeOutLine.png';
 import icLocation from '../assets/images/icons/icLocation.png';
 import icLogout from '../assets/images/icons/icLogout.png';
+import icMain from '../assets/images/icons/icMain.png';
 import icMaleAndFemale from '../assets/images/icons/icMaleAndFemale.png';
 import icMoon from '../assets/images/icons/icMoon.png';
+import icNewsFill from '../assets/images/icons/icNewsFill.png';
+import icNewsOutLine from '../assets/images/icons/icNewsOutLine.png';
 import icOpenEye from '../assets/images/icons/icOpenEye.png';
 import icPhone from '../assets/images/icons/icPhone.png';
 import icPlus from '../assets/images/icons/icPlus.png';
@@ -44,42 +51,49 @@ import imgMainLogo from '../assets/images/imgMainLogo.png';
 import imgFaceBookLogo from '../assets/images/logoFacebook.png';
 
 const ICONS = {
-  icCurrency,
-  icGroup,
-  icLocation,
-  icDateTime,
-  icHome,
-  icMaleAndFemale,
-  icSun,
-  icMoon,
-  icStatus,
   icArea,
-  icLogout,
-  icRecent,
-  icProfile,
   icArrowBack,
+  icArrowDown,
+  icArrowLeft,
   icArrowRight,
   icArrowUp,
-  icArrowLeft,
-  icArrowDown,
-  icOpenEye,
+  icCalendar,
+  icCameraWithHeart,
   icCloseEye,
-  icEditFill,
+  icComment,
+  icCurrency,
+  icDateTime,
   icEarth,
-  icPlus,
-  icSearch,
-  icShare,
+  icEdit,
+  icEditFill,
+  icEmail,
+  icGroup,
   icHeartFill,
   icHeartOutLine,
-  icTick,
-  icEmail,
+  icHome,
+  icLikeFill,
+  icLikeOutLine,
+  icLocation,
+  icLogout,
+  icMaleAndFemale,
+  icMoon,
+  icOpenEye,
   icPhone,
-  icCalendar,
-  icEdit,
+  icPlus,
   icPlusGradient,
+  icProfile,
+  icRecent,
+  icSearch,
+  icShare,
+  icStatus,
+  icSun,
   icSwitchCamera,
-  icCameraWithHeart,
+  icTick,
   icX,
+  icNewsFill,
+  icNewsOutLine,
+  icContactTo,
+  icMain,
 };
 
 const IMAGES = {

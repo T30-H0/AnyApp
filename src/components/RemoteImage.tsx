@@ -1,5 +1,9 @@
 import React from 'react';
-import FastImage, {FastImageProps, ImageStyle} from 'react-native-fast-image';
+import FastImage, {
+  FastImageProps,
+  ImageStyle,
+  ResizeMode,
+} from 'react-native-fast-image';
 import {StyleProp} from 'react-native/types';
 
 const RemoteImage = ({
@@ -7,11 +11,13 @@ const RemoteImage = ({
   url,
   style,
   tintColor,
+  resizeMode,
 }: {
   props?: FastImageProps;
   url: any;
   tintColor?: string;
   style?: StyleProp<ImageStyle>;
+  resizeMode?: ResizeMode;
 }) => {
   return (
     <FastImage
@@ -19,7 +25,7 @@ const RemoteImage = ({
       style={style}
       source={{uri: url}}
       tintColor={tintColor}
-      resizeMode={FastImage.resizeMode.contain}
+      resizeMode={resizeMode || FastImage.resizeMode.contain}
     />
   );
 };

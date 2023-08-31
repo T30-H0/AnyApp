@@ -4,12 +4,12 @@ import React, {useEffect, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
-import {ImageZoomer, LocalImage, Skeleton, Text} from '../../../components';
-import APP_COLORS from '../../../themes/Colors';
-import {ICONS} from '../../../themes/Images';
-import {HAS_NOTCH, HIT_SLOP} from '../../../utils/Constant';
-import {formatTimer, isEmpty} from '../../../utils/helpers';
-import {VidepProps} from './types';
+import {ImageZoomer, LocalImage, Skeleton, Text} from '../../components';
+import APP_COLORS from '../../themes/Colors';
+import {ICONS} from '../../themes/Images';
+import {HAS_NOTCH, HIT_SLOP} from '../../utils/Constant';
+import {formatTimer, isEmpty} from '../../utils/helpers';
+import {VidepProps} from './components/types';
 
 const CamVideoRecorder = () => {
   const navigation = useNavigation<any>();
@@ -60,8 +60,8 @@ const CamVideoRecorder = () => {
 
     setIsRecordingVideo(true);
     cameraRef.current.startRecording({
-      onRecordingFinished: (video: VidepProps) => console.log('video', video),
-      onRecordingError: (error: any) => console.error('error', error),
+      onRecordingFinished: (_video: VidepProps) => {},
+      onRecordingError: (_error: any) => {},
     });
   };
 
@@ -106,11 +106,13 @@ const CamVideoRecorder = () => {
         ) : (
           <ImageZoomer url={!isEmpty(image) ? `file://${image}` : null} />
         )}
-        <View style={styles.timer}>
-          <Text type="bold-16" color={APP_COLORS.white}>
-            {formatTimer(elapsedTime)}
-          </Text>
-        </View>
+        {!isUsingCamera ? (
+          <View style={styles.timer}>
+            <Text type="bold-16" color={APP_COLORS.white}>
+              {formatTimer(elapsedTime)}
+            </Text>
+          </View>
+        ) : null}
       </>
     );
   };
@@ -174,7 +176,10 @@ const CamVideoRecorder = () => {
     );
   };
 
-  const rendeClearButton = () => {
+  const rendeActionButtons = () => {
+    if (isRecordingVideo) {
+      return null;
+    }
     return (
       <>
         <TouchableOpacity
@@ -204,7 +209,7 @@ const CamVideoRecorder = () => {
     <>
       {renderCameraAndMedia()}
       {rendeTakePhotoButtons()}
-      {rendeClearButton()}
+      {rendeActionButtons()}
     </>
   );
 };
@@ -249,11 +254,12 @@ const styles = StyleSheet.create({
   btnStopVideo: {
     flex: 1,
     borderRadius: 40,
-    margin: 18,
+    margin: 2,
     backgroundColor: APP_COLORS.red,
   },
   btnRecordingVideo: {
-    borderRadius: 4,
+    borderRadius: 8,
+    margin: 14,
     backgroundColor: APP_COLORS.primary,
   },
   btnSwitchCam: {

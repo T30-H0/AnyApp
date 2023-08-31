@@ -43,4 +43,21 @@ const formatTimer = (milliseconds: number) => {
   return formattedTime;
 };
 
-export {displayPhoneNumber, formatCurrency, formatTimer, isEmpty};
+function formatThousandsNumber(number: number): string {
+  if (number >= 1000000000) {
+    return Math.floor(number / 1000000000) + 'B';
+  } else if (number >= 1000000) {
+    return Math.floor(number / 1000000) + 'M';
+  } else if (number >= 1000) {
+    return Math.floor(number / 1000) + 'K';
+  }
+  return number.toString();
+}
+
+export {
+  displayPhoneNumber,
+  formatCurrency,
+  formatThousandsNumber,
+  formatTimer,
+  isEmpty,
+};

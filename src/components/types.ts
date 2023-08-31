@@ -81,3 +81,12 @@ export interface SkeletonComponentProps {
   height?: number;
   borderRadius?: number;
 }
+
+export interface CustomTabProps {
+  index: number;
+  values: string;
+  name: string;
+  icon: string;
+  activeColor: string;
+  inActiveColor: string;
+}

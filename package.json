@@ -10,7 +10,8 @@
     "test": "jest",
     "android-prod": "ENVFILE=.env.release react-native run-android",
     "ios-dev": "ENVFILE=.env.dev react-native run-ios",
-    "android:clean": "cd android && ./gradlew clean && cd ..",
+    "postinstall": "patch-package",
+    "android:clean": "cd android && ./gradlew clean  &&  cd ..",
     "pod": "npx react-native setup-ios-permissions && cd ios && pod install && cd .."
   },
   "dependencies": {
@@ -26,6 +27,8 @@
     "@reduxjs/toolkit": "^1.9.5",
     "i18next": "^22.5.0",
     "native": "^0.3.3",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "react": "^18.2.0",
     "react-i18next": "^12.3.1",
     "react-native": "0.71.4",
@@ -37,7 +40,7 @@
     "react-native-gesture-handler": "^2.12.0",
     "react-native-modalize": "^2.1.1",
     "react-native-permissions": "^3.8.0",
-    "react-native-reanimated": "2.14.4",
+    "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^4.5.0",
     "react-native-screens": "^3.20.0",
     "react-native-video": "^5.2.1",

@@ -1,3 +1,4 @@
+import {SCREEN_HEIGHT} from '@gorhom/bottom-sheet';
 import {ImageZoom} from '@likashefqet/react-native-image-zoom';
 import React from 'react';
 import {StyleSheet} from 'react-native';
@@ -36,6 +37,6 @@ const styles = StyleSheet.create({
   },
   image: {
     width: SCREEN_WIDTH,
-    height: '100%',
+    height: SCREEN_HEIGHT,
   },
 });

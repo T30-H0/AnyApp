@@ -7,7 +7,8 @@ import {useTranslation} from 'react-i18next';
 import {Platform} from 'react-native';
 import HeaderBackButton from '../components/HeaderBackButton';
 import {useAppMode} from '../hooks/useAppMode';
-import CamVideoRecorder from '../screen/activities/subActivitiesScreen/CamVideoRecorder';
+import CamVideoRecorder from '../screen/activities/CamVideoRecorder';
+import Post from '../screen/activities/Post';
 import Login from '../screen/auth/Login';
 import Detail from '../screen/home/Detail';
 import Intro from '../screen/intro/Intro';
@@ -106,6 +107,11 @@ const StackNavigator = ({isSkip}: {isSkip: boolean}) => {
       name: SCREEN.CAM_VIDEO_RECORDER,
       component: CamVideoRecorder,
       options: {headerShown: false},
+    },
+    {
+      name: SCREEN.POST,
+      component: Post,
+      options: {headerShown: true},
     },
   ];
 

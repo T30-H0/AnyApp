@@ -1,10 +1,11 @@
 export const SCREEN = {
+  MAIN: 'Main',
+  POST: 'Post',
+  THEME: 'Theme',
   INTRO: 'Intro',
   LOGIN: 'Login',
-  MAIN: 'Main',
   DETAIL: 'Detail',
-  EDIT_PROFILE: 'EditProfile',
-  THEME: 'Theme',
   LANGUAGES: 'Languages',
+  EDIT_PROFILE: 'EditProfile',
   CAM_VIDEO_RECORDER: 'CamVideoRecorder',
 };
