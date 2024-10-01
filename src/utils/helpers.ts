@@ -1,3 +1,5 @@
+import {ThrottleCallback} from './types';
+
 const formatCurrency = (value: string | number) => {
   if (typeof value === 'number') {
     const parts = value.toFixed(0).split('.');
@@ -43,21 +45,69 @@ const formatTimer = (milliseconds: number) => {
   return formattedTime;
 };
 
-function formatThousandsNumber(number: number): string {
-  if (number >= 1000000000) {
-    return Math.floor(number / 1000000000) + 'B';
-  } else if (number >= 1000000) {
-    return Math.floor(number / 1000000) + 'M';
-  } else if (number >= 1000) {
-    return Math.floor(number / 1000) + 'K';
+const formatThousandsNumber = (number: number): string => {
+  if (number >= 1e9) {
+    return Math.floor(number / 1e9) + 'B';
+  } else if (number >= 1e6) {
+    return Math.floor(number / 1e6) + 'M';
+  } else if (number >= 1e3) {
+    return Math.floor(number / 1e3) + 'K';
   }
   return number.toString();
-}
+};
+
+const truncate = (str: string, maxLength: number) => {
+  return str?.length > maxLength ? str.slice(0, maxLength) + '...' : str;
+};
+
+const generateAlphabets = (): string => {
+  let str: string = '';
+  for (let i: number = 97; i < 123; i++) {
+    str += String.fromCodePoint(i);
+  }
+  return str;
+};
+
+const debounce = (callback: (...args: any) => void, delay: number) => {
+  let timer = null;
+  return (...args: any) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+};
+
+const throttle = (callback: ThrottleCallback, delay: number) => {
+  let isThrottled = false;
+  let savedArgs = null;
+
+  return (...args: any) => {
+    if (isThrottled) {
+      savedArgs = args;
+    } else {
+      callback(...args);
+      isThrottled = true;
+
+      setTimeout(() => {
+        if (savedArgs !== null) {
+          callback(...savedArgs);
+          savedArgs = null;
+        }
+        isThrottled = false;
+      }, delay);
+    }
+  };
+};
 
 export {
+  debounce,
   displayPhoneNumber,
   formatCurrency,
   formatThousandsNumber,
   formatTimer,
+  generateAlphabets,
   isEmpty,
+  throttle,
+  truncate,
 };

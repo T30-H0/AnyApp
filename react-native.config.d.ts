@@ -3,6 +3,7 @@ declare module 'react-native-config' {
     APP_ENV_NAME: string;
     APP_NAME: string;
     WEB_CLIENT_ID: string;
+    BASE_URL_API: string;
   }
 
   const Config: Config;

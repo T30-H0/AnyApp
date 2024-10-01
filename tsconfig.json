@@ -2,6 +2,7 @@
   "compilerOptions": {
     // Other options...
     "jsx": "react-native",
+    "resolveJsonModule": true,
     "esModuleInterop": true
   }
 }

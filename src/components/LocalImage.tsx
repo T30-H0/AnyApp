@@ -1,31 +1,30 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import FastImage, {FastImageProps, ImageStyle} from 'react-native-fast-image';
-import {StyleProp} from 'react-native/types';
+import {
+  Animated,
+  Image,
+  ImageProps,
+  ImageStyle,
+  StyleProp,
+  StyleSheet,
+} from 'react-native';
 
-const LocalImage = ({
-  props,
-  image,
-  style,
-  tintColor,
-}: {
-  props?: FastImageProps;
+type LocalImageProps = {
+  props?: ImageProps;
   image: any;
   tintColor?: string;
   style?: StyleProp<ImageStyle>;
-}) => {
+};
+
+const AnimatedImage = Animated.createAnimatedComponent(Image);
+
+const LocalImage: React.FC<LocalImageProps> = ({props, image, style}) => {
   return (
-    <FastImage
-      {...props}
-      style={[styles.main, style]}
-      source={image}
-      tintColor={tintColor}
-      resizeMode={FastImage.resizeMode.contain}
-    />
+    <AnimatedImage {...props} style={[styles.main, style]} source={image} />
   );
 };
 
 export default LocalImage;
+
 const styles = StyleSheet.create({
   main: {
     width: 14,

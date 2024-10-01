@@ -2,7 +2,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useEffect, useMemo, useState} from 'react';
 
 const storeData = async (key: string, value: any) => {
-  console.log('vao storage', value);
   try {
     const storedValue =
       typeof value !== 'string' && typeof value !== 'number'
@@ -13,7 +12,6 @@ const storeData = async (key: string, value: any) => {
 };
 
 const getData = async (key: string) => {
-  console.log('vao get');
   try {
     const value = await AsyncStorage.getItem(key);
     return JSON.parse(value ?? 'null');
@@ -23,7 +21,6 @@ const getData = async (key: string) => {
 };
 
 const removeData = async (key?: string) => {
-  console.log('vao clear');
   try {
     if (!key) {
       return;

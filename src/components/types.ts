@@ -1,12 +1,13 @@
 import {
   ColorValue,
+  ImageStyle,
   StyleProp,
   TextProps,
   TextStyle,
   ViewProps,
   ViewStyle,
 } from 'react-native';
-import {ImageStyle} from 'react-native-fast-image';
+// import {ImageStyle} from 'react-native-fast-image';
 
 export interface IInputProps {
   inputContainerStyle?: StyleProp<ViewStyle>;
@@ -73,7 +74,7 @@ export interface IToggleSwitch {
   style?: StyleProp<ViewStyle>;
   onPress: () => void;
   title?: string;
-  isSelected?: any;
+  isSelected?: boolean;
 }
 
 export interface SkeletonComponentProps {

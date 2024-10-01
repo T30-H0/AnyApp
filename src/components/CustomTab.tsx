@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Dispatch, SetStateAction, useState} from 'react';
 import {FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import APP_COLORS from '../themes/Colors';
 import {ICONS} from '../themes/Images';
@@ -25,11 +25,16 @@ const TAB_DATA: CustomTabProps[] = [
   },
 ];
 
-const CustomTab = () => {
+type TabProps = {
+  setTabIndex: Dispatch<SetStateAction<number>>;
+};
+
+const CustomTab = ({setTabIndex}: TabProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelectTab = (index: number) => () => {
     setSelectedIndex(index);
+    setTabIndex?.(index);
   };
 
   const renderItem = ({item, index}) => {

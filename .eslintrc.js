@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   extends: '@react-native-community',
-  rules:{
+  rules: {
     'no-duplicate-imports': 'error',
     'prettier/prettier': [
       'error',
@@ -24,5 +24,5 @@ module.exports = {
         ignoreDeclarationSort: true,
       },
     ],
-  }
+  },
 };

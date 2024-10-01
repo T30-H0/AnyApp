@@ -1,31 +1,32 @@
 import React from 'react';
-import FastImage, {
-  FastImageProps,
-  ImageStyle,
-  ResizeMode,
-} from 'react-native-fast-image';
-import {StyleProp} from 'react-native/types';
+// import FastImage, {
+//   FastImageProps,
+//   ImageStyle,
+//   ResizeMode,
+// } from 'react-native-fast-image';
+import {Image} from 'react-native';
+import {ImageProps, ImageStyle, StyleProp} from 'react-native/types';
 
 const RemoteImage = ({
   props,
   url,
   style,
   tintColor,
-  resizeMode,
-}: {
-  props?: FastImageProps;
+}: // resizeMode,
+{
+  props?: ImageProps;
   url: any;
   tintColor?: string;
   style?: StyleProp<ImageStyle>;
-  resizeMode?: ResizeMode;
+  // resizeMode?: ResizeMode;
 }) => {
   return (
-    <FastImage
+    <Image
       {...props}
       style={style}
       source={{uri: url}}
-      tintColor={tintColor}
-      resizeMode={resizeMode || FastImage.resizeMode.contain}
+      // tintColor={tintColor}
+      // resizeMode={resizeMode}
     />
   );
 };

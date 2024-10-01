@@ -25,6 +25,7 @@ import icLocation from '../assets/images/icons/icLocation.png';
 import icLogout from '../assets/images/icons/icLogout.png';
 import icMain from '../assets/images/icons/icMain.png';
 import icMaleAndFemale from '../assets/images/icons/icMaleAndFemale.png';
+import icMedia from '../assets/images/icons/icMedia.png';
 import icMoon from '../assets/images/icons/icMoon.png';
 import icNewsFill from '../assets/images/icons/icNewsFill.png';
 import icNewsOutLine from '../assets/images/icons/icNewsOutLine.png';
@@ -44,10 +45,14 @@ import icX from '../assets/images/icons/icX.png';
 
 //images
 import imgGoogleLogo from '../assets/images/googleLogo.png';
+import imgCodeScan from '../assets/images/imgCodeScan.png';
 import imgDefaultAvatar from '../assets/images/imgDefaultAvatar.png';
+import imgDeposit from '../assets/images/imgDeposit.png';
 import imgGallery from '../assets/images/imgGallery.png';
 import imgDefaultImage from '../assets/images/imgHouseDefault.png';
 import imgMainLogo from '../assets/images/imgMainLogo.png';
+import imgQRCode from '../assets/images/imgQRCode.png';
+import imgWithDrawMoney from '../assets/images/imgWithDrawMoney.png';
 import imgFaceBookLogo from '../assets/images/logoFacebook.png';
 
 const ICONS = {
@@ -94,6 +99,7 @@ const ICONS = {
   icNewsOutLine,
   icContactTo,
   icMain,
+  icMedia,
 };
 
 const IMAGES = {
@@ -103,6 +109,10 @@ const IMAGES = {
   imgDefaultAvatar,
   imgMainLogo,
   imgGallery,
+  imgCodeScan,
+  imgQRCode,
+  imgWithDrawMoney,
+  imgDeposit,
 };
 
 export {ICONS, IMAGES};

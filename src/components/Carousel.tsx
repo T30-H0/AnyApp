@@ -3,12 +3,13 @@ import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {
   FlatList,
+  Image,
   Platform,
   StyleSheet,
   TouchableOpacity,
   View,
 } from 'react-native';
-import FastImage from 'react-native-fast-image';
+// import FastImage from 'react-native-fast-image';
 import Animated, {
   Extrapolate,
   interpolate,
@@ -59,7 +60,7 @@ const Item = ({
   return (
     <Animated.View key={String(index)} style={[styles.card, cardStyle]}>
       <TouchableOpacity activeOpacity={0.7} onPress={onPressItem}>
-        <FastImage source={{uri: item?.image}} style={styles.image} />
+        <Image source={{uri: item?.image}} style={styles.image} />
         <View style={styles.content}>
           <Text
             type="bold-16"

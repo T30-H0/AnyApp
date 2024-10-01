@@ -1,8 +1,13 @@
 import {SCREEN_WIDTH} from '@gorhom/bottom-sheet';
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
-import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
-import FastImage from 'react-native-fast-image';
+import React, {useEffect, useRef, useState} from 'react';
+import {
+  Animated,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {
   Divider,
   IconText,
@@ -17,15 +22,42 @@ import APP_COLORS from '../../themes/Colors';
 import {ICONS, IMAGES} from '../../themes/Images';
 import {HIT_SLOP} from '../../utils/Constant';
 import {formatThousandsNumber} from '../../utils/helpers';
+import News from './News';
 
 const Activities = () => {
   const navigation = useNavigation<any>();
+  const [isLoved, setIsLoved] = useState(false);
+  const animatedHeartValue = useRef(new Animated.Value(0)).current;
+  const [tabIndex, setTabIndex] = useState(0);
+
+  useEffect(() => {
+    Animated.timing(animatedHeartValue, {
+      toValue: isLoved ? 1 : 0,
+      duration: 500,
+      useNativeDriver: true,
+    }).start();
+  }, [isLoved, animatedHeartValue]);
+
+  const heartAnimatedStyle = {
+    transform: [
+      {
+        scale: animatedHeartValue.interpolate({
+          inputRange: [0, 0.1, 0.8, 1],
+          outputRange: [1, 1.4, 2, 1],
+        }),
+      },
+    ],
+  };
 
   const onAddPost = () => {
     navigation.navigate(SCREEN.POST);
   };
 
-  const renderItem = ({}) => {
+  const onHeart = () => {
+    setIsLoved(!isLoved);
+  };
+
+  const renderItem = () => {
     return (
       <View style={styles.postContainer}>
         <View style={styles.postInfoContainer}>
@@ -38,7 +70,7 @@ const Activities = () => {
         <View style={styles.postContent}>
           <Text style={styles.txtContent}>
             Embracing the heights and conquering the challenges, my mountain
-            getaway was a true escape into nature's embrace.
+            getaway was a true escape into natures embrace.
           </Text>
           <Text type="bold-12">#MountainAdventures</Text>
         </View>
@@ -47,7 +79,7 @@ const Activities = () => {
             'https://images.immediate.co.uk/production/volatile/sites/3/2020/12/Gal-Gadot-Wonder-Woman-1984-b8f82eb.jpg'
           }
           style={styles.image}
-          resizeMode={FastImage.resizeMode.cover}
+          // resizeMode={FastImage.resizeMode.cover}
         />
         <View style={styles.viewBtnActions}>
           <Text type="normal-12">{formatThousandsNumber(23811)} Likes</Text>
@@ -64,11 +96,18 @@ const Activities = () => {
               iconStyle={styles.iconAction}
             />
           </TouchableOpacity>
-          <TouchableOpacity hitSlop={HIT_SLOP}>
+          <TouchableOpacity
+            hitSlop={HIT_SLOP}
+            onPress={onHeart}
+            activeOpacity={0.7}>
             <IconText
-              icon={ICONS.icHeartFill}
+              icon={isLoved ? ICONS.icHeartFill : ICONS.icHeartOutLine}
               text="Love"
-              iconStyle={styles.iconAction}
+              iconStyle={[
+                styles.iconAction,
+                {tintColor: isLoved ? APP_COLORS.pink : undefined},
+                heartAnimatedStyle,
+              ]}
             />
           </TouchableOpacity>
           <TouchableOpacity hitSlop={HIT_SLOP}>
@@ -85,15 +124,20 @@ const Activities = () => {
 
   return (
     <ModeView style={styles.fill}>
-      <CustomTab />
-      <FlatList
-        data={['', '', '']}
-        renderItem={renderItem}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(_item: any, index: number) => String(index)}
-        style={styles.fill}
-        contentContainerStyle={styles.contentContainerStyle}
-      />
+      <CustomTab setTabIndex={setTabIndex} />
+      {tabIndex === 0 ? (
+        <FlatList
+          data={['']}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={(_item, index: number) => String(index)}
+          style={styles.fill}
+          contentContainerStyle={styles.contentContainerStyle}
+        />
+      ) : (
+        <News />
+      )}
+
       <TouchableOpacity style={styles.btnPlus} onPress={onAddPost}>
         <LocalImage
           image={ICONS.icPlus}

@@ -15,7 +15,8 @@
       "logout": "Logout",
       "editProfile": "Edit Profile",
       "photo": "Photo",
-      "video": "Video"
+      "video": "Video",
+      "media": "Media"
     }
   }
 }

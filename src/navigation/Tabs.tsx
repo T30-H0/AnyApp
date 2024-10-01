@@ -9,6 +9,7 @@ import {Image, ImageSourcePropType, StyleSheet} from 'react-native';
 import {useAppMode} from '../hooks/useAppMode';
 import Activities from '../screen/activities/Activities';
 import Home from '../screen/home/Home';
+import Media from '../screen/media/Media';
 import Profile from '../screen/profile/Profile';
 import APP_COLORS from '../themes/Colors';
 import {ICONS} from '../themes/Images';
@@ -58,6 +59,14 @@ const MainTabs = () => {
         options={{
           title: t('common.activities') || '',
           tabBarIcon: ({focused}) => getTabBarIcon(focused, ICONS.icRecent),
+        }}
+      />
+      <Tab.Screen
+        name="Media"
+        component={Media}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({focused}) => getTabBarIcon(focused, ICONS.icMedia),
         }}
       />
       <Tab.Screen

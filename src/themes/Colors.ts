@@ -11,6 +11,7 @@ const APP_COLORS = {
   borderColor: '#ACB2B8',
   skeletonBackground: '#E0E0E0',
   darkPink: '#e500bb',
+  pink: '#AF0C6E',
 };
 
 export default APP_COLORS;

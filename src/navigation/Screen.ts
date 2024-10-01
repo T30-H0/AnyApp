@@ -8,4 +8,5 @@ export const SCREEN = {
   LANGUAGES: 'Languages',
   EDIT_PROFILE: 'EditProfile',
   CAM_VIDEO_RECORDER: 'CamVideoRecorder',
+  MEDIA: 'Media',
 };

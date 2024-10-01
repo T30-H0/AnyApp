@@ -4,7 +4,7 @@ import {store} from '../redux/store';
 import english from './en.json';
 import vietnamese from './vi.json';
 
-const language = store.getState().app.language;
+const language = store?.getState().app.language;
 i18next.use(initReactI18next).init({
   lng: language,
   resources: {

@@ -71,7 +71,6 @@ const useLocation = (): UseLocationHook => {
   const getLocation = () => {
     Geolocation.getCurrentPosition(
       (position: any) => {
-        console.log('position', position);
         setLocation({
           ...position.coords,
           altitude: position.coords.altitude ?? 0,
@@ -79,7 +78,6 @@ const useLocation = (): UseLocationHook => {
         });
       },
       (error: any) => {
-        console.log('error', error);
         if (error.message === 'Location permission denied') {
           setPermissionStatus('denied');
         } else {
